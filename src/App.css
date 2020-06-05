@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: max(8vh, 50px);
+  width: 100vw;
+  padding-top: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  height: 92vh;
+}
+
+.App {
+  background: blue;
+}

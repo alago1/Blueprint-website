@@ -1,0 +1,81 @@
+/* .svgcomp-appear path {
+  fill: transparent;
+  stroke-dashoffset: 1;
+  stroke-dasharray: 1;
+}
+
+.svgcomp-appear.svgcomp-appear-active path {
+  stroke-dashoffset: 0;
+  fill: #f5f5f5;
+  //not sure why stroke-dashoffset does not follow normal time rules but I will look into it later
+  transition: stroke-dashoffset 10s ease-in-out, fill 1s ease-in;
+}
+
+.svgcomp-enter path {
+  fill: transparent;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.svgcomp-enter.svgcomp-enter-active path {
+  stroke-dashoffset: 0;
+  fill: #f5f5f5;
+  transition: stroke-dashoffset 10s ease-in-out 4s, fill 1s ease-in 4s;
+}
+
+.svgcom-leave path {
+  stroke-dashoffset: 0;
+  fill: #f5f5f5;
+}
+
+.svgcomp-leave.svgcomp-leave-active path {
+  fill: transparent;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 10s ease-in-out, fill 0.5s ease-in;
+}
+
+@keyframes comp {
+  to {
+    stroke-dashoffset: 0;
+  }
+} */
+
+.comp path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-width: 1;
+  stroke: #f5f5f5;
+  fill: transparent;
+  stroke-opacity: 1;
+  animation: comp-svg 2s ease-in-out 2s forwards;
+}
+
+.decomp path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  stroke-width: 1;
+  stroke: #f5f5f5;
+  fill: #f5f5f5;
+  stroke-opacity: 1;
+  animation: decomp-svg 2s ease-in-out forwards;
+}
+
+@keyframes comp-svg {
+  to {
+    fill: #f5f5f5;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes decomp-svg {
+  0% {
+    fill: #f5f5f5;
+  }
+  90% {
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+    stroke-dashoffset: 1;
+  }
+}
