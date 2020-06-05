@@ -12,7 +12,6 @@ function HeaderNav() {
     About: useRef(null),
     Contact: useRef(null),
   };
-  const prevPage = useRef("Home");
 
   const pages = {
     Home: (
@@ -38,24 +37,25 @@ function HeaderNav() {
     ),
   };
 
+  useEffect(() => {
+    Object.keys(pages)
+      .filter((page) => page !== currPage)
+      .forEach((page) => pageRefs[page].current.playStartAnimation());
+  }, [pages, pageRefs, currPage]);
+
   const handleChangePage = (newPage) => {
     if (Object.keys(pages).indexOf(newPage) >= 0) {
       if (pageRefs[newPage].current) {
         Object.keys(pages)
-          .filter((page) => page !== currPage)
-          .forEach((pageName) => {
-            pageRefs[pageName].current.playEndAnimation();
-            // pageRefs[pageName].current.unmountAnimation();
-            // void pageRefs[pageName].current.offsetWidth;
-          });
-        pageRefs[currPage].current.playStartAnimation();
+          .filter((elem) => elem !== currPage)
+          .forEach((page) => pageRefs[page].current.playEndAnimation());
       }
       console.log("Setting new page to " + newPage);
-      prevPage.current = currPage;
-      setCurrPage(newPage);
+      setTimeout(() => {
+        setCurrPage(newPage);
+      }, 2000);
     } else {
       console.log("Could not find page: " + newPage + ". Sent Home instead.");
-      prevPage.current = currPage;
       setCurrPage("Home");
     }
   };
@@ -64,15 +64,10 @@ function HeaderNav() {
     return (
       <Fragment>
         {Object.keys(pages)
-          // .filter((elem) => elem !== currPage)
-          .map((elem) => {
+          .filter((elem) => elem !== currPage)
+          .map((elem, index) => {
             return (
-              <DrawSVG
-                name={currPage}
-                key={elem}
-                ref={pageRefs[elem]}
-                order={elem !== prevPage.current ? 0 : -1}
-              >
+              <DrawSVG name={currPage} key={index} ref={pageRefs[elem]}>
                 {pages[elem]}
               </DrawSVG>
             );
