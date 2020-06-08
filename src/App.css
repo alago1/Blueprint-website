@@ -18,4 +18,11 @@ main {
 
 .App {
   background: blue;
+  background-size: 20px 20px;
+  background-image: linear-gradient(
+      to right,
+      rgba(245, 245, 245, 0.2) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(245, 245, 245, 0.2) 1px, transparent 1px);
 }

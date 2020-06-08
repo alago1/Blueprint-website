@@ -6,3 +6,11 @@ section {
 .name svg {
   height: 40px;
 }
+
+.name svg path {
+  transition: stroke-width 2s linear;
+}
+
+.lowstroke svg path {
+  stroke-width: 0;
+}
