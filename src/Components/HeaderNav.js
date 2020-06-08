@@ -45,6 +45,7 @@ function HeaderNav() {
   }, [pages, pageRefs, currPage]);
 
   const handleChangePage = (newPage) => {
+    // To circumvent checking if position would change based on width, newPage, etc.
     const shouldRedrawAll = newPage === "Contact" || currPage === "Contact";
 
     if (Object.keys(pages).indexOf(newPage) >= 0) {
