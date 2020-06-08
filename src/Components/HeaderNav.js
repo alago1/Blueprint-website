@@ -41,7 +41,7 @@ function HeaderNav() {
     Object.keys(pages)
       .filter((page) => page !== currPage)
       //first draw animation takes a bigger delay than others
-      .forEach((page) => pageRefs[page].current.playStartAnimation(2000, 0));
+      .forEach((page) => pageRefs[page].current.playStartAnimation(2000, 1000));
   }, [pages, pageRefs, currPage]);
 
   const handleChangePage = (newPage) => {
