@@ -26,7 +26,7 @@ svg.highlight:hover path.texture {
   fill-opacity: 0.7;
 }
 
-.comp path {
+/* .comp path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   stroke-width: 1;
@@ -44,7 +44,7 @@ svg.highlight:hover path.texture {
   fill: #f5f5f5;
   stroke-opacity: 1;
   animation: decomp-svg 2s ease-in-out forwards;
-}
+} */
 
 @keyframes comp-svg {
   to {

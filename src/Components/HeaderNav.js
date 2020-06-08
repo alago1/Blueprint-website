@@ -2,8 +2,8 @@ import React, { Fragment, useState, useEffect, useRef } from "react";
 import { ReactComponent as HeaderHome } from "../svgs/1. Header/Header_Home.svg";
 import { ReactComponent as HeaderAbout } from "../svgs/1. Header/Header_About.svg";
 import { ReactComponent as HeaderContact } from "../svgs/1. Header/Header_Contact.svg";
-import "./Styles/HeaderNav.css";
 import DrawSVG from "./Animation/DrawSVG";
+import "./Styles/HeaderNav.css";
 
 function HeaderNav() {
   const [currPage, setCurrPage] = useState("Home");
@@ -40,20 +40,33 @@ function HeaderNav() {
   useEffect(() => {
     Object.keys(pages)
       .filter((page) => page !== currPage)
-      .forEach((page) => pageRefs[page].current.playStartAnimation());
+      //first draw animation takes a bigger delay than others
+      .forEach((page) => pageRefs[page].current.playStartAnimation(2000, 0));
   }, [pages, pageRefs, currPage]);
 
   const handleChangePage = (newPage) => {
+    const shouldRedrawAll = newPage === "Contact" || currPage === "Contact";
+
     if (Object.keys(pages).indexOf(newPage) >= 0) {
       if (pageRefs[newPage].current) {
-        Object.keys(pages)
-          .filter((elem) => elem !== currPage)
-          .forEach((page) => pageRefs[page].current.playEndAnimation());
+        pageRefs[newPage].current.playEndAnimation();
+        if (shouldRedrawAll)
+          Object.keys(pages)
+            .filter((elem) => elem !== currPage && elem !== newPage)
+            .forEach((page) =>
+              pageRefs[page].current.playEndAnimation(1500, 1000)
+            );
       }
       console.log("Setting new page to " + newPage);
-      setTimeout(() => {
-        setCurrPage(newPage);
-      }, 2000);
+
+      //delay so that end animation is not cut off be the component being unmounted
+      //be careful with this delay: if its bigger than the animation duration+delay some visual glitches might occur
+      setTimeout(
+        () => {
+          setCurrPage(newPage);
+        },
+        shouldRedrawAll ? 2500 : 2000
+      );
     } else {
       console.log("Could not find page: " + newPage + ". Sent Home instead.");
       setCurrPage("Home");
