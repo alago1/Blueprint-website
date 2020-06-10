@@ -8,9 +8,9 @@ section {
 }
 
 .name svg path {
-  transition: stroke-width 2s linear;
+  transition: stroke-width 0.5s ease-in-out;
 }
 
 .lowstroke svg path {
-  stroke-width: 0;
+  stroke-width: 0.5;
 }

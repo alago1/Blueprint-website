@@ -1,32 +1,28 @@
-// import React, { Fragment } from "react";
-// import { ReactComponent as BannerText1 } from "../svgs/Text1.svg";
-// import { ReactComponent as BannerText2 } from "../svgs/Text2.svg";
-// import { ReactComponent as BannerText3 } from "../svgs/Text3.svg";
-// import { ReactComponent as LightBulb } from "../svgs/light_bulb.svg";
-// import "./Main.css";
+import React, { Fragment } from "react";
+import { ReactComponent as BannerText1 } from "../svgs/2. Home Page/Banner Text 1.svg";
+import { ReactComponent as BannerText2 } from "../svgs/2. Home Page/Banner Text 2.svg";
+import { ReactComponent as BannerText3 } from "../svgs/2. Home Page/Banner Text 3.svg";
+import BannerFigures from "./BannerFigures";
+import DrawSVG from "./Animation/DrawSVG";
+import "./Styles/Main.css";
 
-// function Main() {
-//   return (
-//     <Fragment>
-//       <div class="banner-column">
-//         <div class="banner-text">
-//           <BannerText1
-//             class="banner text1"
-//             preserveAspectRatio="xMidYMid meet"
-//           />
-//           <BannerText2
-//             class="banner text2"
-//             preserveAspectRatio="xMidYMin meet"
-//           />
-//           <BannerText3
-//             class="banner text3"
-//             preserveAspectRatio="xMidYMin meet"
-//           />
-//         </div>
-//         <LightBulb class="light-bulb" />
-//       </div>
-//     </Fragment>
-//   );
-// }
+function Main() {
+  return (
+    <Fragment>
+      <div className="banner-text">
+        <DrawSVG duration="6000" delay="5500">
+          <BannerText1 className="banner text1" />
+        </DrawSVG>
+        <DrawSVG duration="6000" delay="15500">
+          <BannerText2 className="banner text2" />
+        </DrawSVG>
+        <DrawSVG duration="6000" delay="20000">
+          <BannerText3 className="banner text3" />
+        </DrawSVG>
+      </div>
+      <BannerFigures />
+    </Fragment>
+  );
+}
 
-// export default Main;
+export default Main;

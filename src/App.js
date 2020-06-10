@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Heading from "./Components/Heading";
-// import Main from "./Components/Main";
+import Main from "./Components/Main";
 
 function App() {
   return (
@@ -9,7 +9,9 @@ function App() {
       <header>
         <Heading />
       </header>
-      <main>{/* <Main /> */}</main>
+      <main>
+        <Main />
+      </main>
       <footer></footer>
     </div>
   );

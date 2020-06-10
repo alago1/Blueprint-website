@@ -10,13 +10,13 @@ function Heading() {
   useEffect(() => {
     setTimeout(() => {
       setRendered(true);
-    }, 4500);
+    }, 3000);
   });
 
   return (
     <Fragment>
       <section className={rendered ? "name lowstroke" : "name"}>
-        <DrawSVG duration="3000" delay="1500">
+        <DrawSVG duration="5000" delay="1000">
           <HeaderName />
         </DrawSVG>
       </section>

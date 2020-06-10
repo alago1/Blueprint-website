@@ -41,7 +41,7 @@ function HeaderNav() {
     Object.keys(pages)
       .filter((page) => page !== currPage)
       //first draw animation takes a bigger delay than others
-      .forEach((page) => pageRefs[page].current.playStartAnimation(2000, 1000));
+      .forEach((page) => pageRefs[page].current.playStartAnimation(4000, 2000));
   }, [pages, pageRefs, currPage]);
 
   const handleChangePage = (newPage) => {
@@ -81,7 +81,7 @@ function HeaderNav() {
           .filter((elem) => elem !== currPage)
           .map((elem, index) => {
             return (
-              <DrawSVG name={currPage} key={index} ref={pageRefs[elem]}>
+              <DrawSVG key={index} ref={pageRefs[elem]}>
                 {pages[elem]}
               </DrawSVG>
             );

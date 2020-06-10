@@ -23,45 +23,5 @@ path.texture {
 }
 
 svg.highlight:hover path.texture {
-  fill-opacity: 0.7;
-}
-
-/* .comp path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  stroke-width: 1;
-  stroke: #f5f5f5;
-  fill: transparent;
-  stroke-opacity: 1;
-  animation: comp-svg 2s ease-in-out 2s forwards;
-}
-
-.decomp path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  stroke-width: 1;
-  stroke: #f5f5f5;
-  fill: #f5f5f5;
-  stroke-opacity: 1;
-  animation: decomp-svg 2s ease-in-out forwards;
-} */
-
-@keyframes comp-svg {
-  to {
-    fill: #f5f5f5;
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes decomp-svg {
-  0% {
-    fill: #f5f5f5;
-  }
-  90% {
-    fill: transparent;
-  }
-  100% {
-    fill: transparent;
-    stroke-dashoffset: 1;
-  }
+  fill-opacity: 0.5;
 }
