@@ -23,13 +23,13 @@
 .ballerina-sketch {
   opacity: 50%;
   z-index: 0;
-  transition: opacity 1s ease;
+  transition: opacity 11s ease;
 }
 
 .ballerina-filled {
   transform: translateX(-5px);
   opacity: 0;
-  animation: ballerina-appear 1s ease-in-out 10s forwards;
+  animation: ballerina-appear 1s ease-in-out 16s forwards;
   z-index: 1;
 }
 
@@ -75,6 +75,10 @@
 
 .ballerina-sketch path {
   stroke-width: 3;
+}
+
+.ballerina-filled path {
+  stroke-width: 0;
 }
 
 @keyframes ballerina-appear {

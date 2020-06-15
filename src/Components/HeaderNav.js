@@ -1,12 +1,15 @@
-import React, { Fragment, useState, useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 import { ReactComponent as HeaderHome } from "../svgs/1. Header/Header_Home.svg";
 import { ReactComponent as HeaderAbout } from "../svgs/1. Header/Header_About.svg";
 import { ReactComponent as HeaderContact } from "../svgs/1. Header/Header_Contact.svg";
 import DrawSVG from "./Animation/DrawSVG";
 import "./Styles/HeaderNav.css";
+import { useState } from "react";
 
-function HeaderNav() {
+function HeaderNav(props) {
+  const signalPage = props.signal;
   const [currPage, setCurrPage] = useState("Home");
+
   const pageRefs = {
     Home: useRef(null),
     About: useRef(null),
@@ -48,7 +51,7 @@ function HeaderNav() {
     // To circumvent checking if position would change based on width, newPage, etc.
     const shouldRedrawAll = newPage === "Contact" || currPage === "Contact";
 
-    if (Object.keys(pages).indexOf(newPage) >= 0) {
+    if (newPage in pages) {
       if (pageRefs[newPage].current) {
         pageRefs[newPage].current.playEndAnimation();
         if (shouldRedrawAll)
@@ -60,6 +63,9 @@ function HeaderNav() {
       }
       console.log("Setting new page to " + newPage);
 
+      //signals newPage to app
+      signalPage(newPage);
+
       //delay so that end animation is not cut off be the component being unmounted
       //be careful with this delay: if its bigger than the animation duration+delay some visual glitches might occur
       setTimeout(
@@ -70,6 +76,7 @@ function HeaderNav() {
       );
     } else {
       console.log("Could not find page: " + newPage + ". Sent Home instead.");
+      signalPage("Home");
       setCurrPage("Home");
     }
   };

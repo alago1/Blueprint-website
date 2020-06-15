@@ -4,7 +4,7 @@ import HeaderNav from "./HeaderNav";
 import DrawSVG from "./Animation/DrawSVG";
 import "./Styles/Heading.css";
 
-function Heading() {
+function Heading(props) {
   const [rendered, setRendered] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function Heading() {
           <HeaderName />
         </DrawSVG>
       </section>
-      <HeaderNav />
+      <HeaderNav signal={props.signal} />
     </Fragment>
   );
 }
