@@ -33,8 +33,8 @@
 
 @keyframes decomp-outline-svg {
   from {
-    /* stroke-dashoffset: 0;
-    stroke-width: 1; */
+    stroke-dashoffset: 0;
+    stroke-width: 1;
   }
   to {
     stroke-dashoffset: 1;

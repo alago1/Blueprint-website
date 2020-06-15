@@ -21,9 +21,8 @@
 }
 
 .ballerina-sketch {
-  opacity: 50%;
+  opacity: 75%;
   z-index: 0;
-  transition: opacity 11s ease;
 }
 
 .ballerina-filled {
@@ -48,7 +47,7 @@
 }
 
 .off .sparks path {
-  visibility: visible;
+  visibility: hidden;
   animation: sparks-appear 0.5s linear 8s;
 }
 
@@ -58,10 +57,12 @@
 
 @keyframes sparks-appear {
   from {
+    visibility: visible;
     stroke-dashoffset: 1;
   }
   to {
     stroke-dashoffset: -1;
+    visibility: hidden;
   }
 }
 
@@ -83,6 +84,12 @@
 
 @keyframes ballerina-appear {
   to {
-    opacity: 95%;
+    opacity: 100%;
+  }
+}
+
+@keyframes disable-object {
+  to {
+    display: none;
   }
 }

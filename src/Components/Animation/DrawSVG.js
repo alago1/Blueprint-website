@@ -66,7 +66,7 @@ function DrawSVG(props, ref) {
     },
   }));
 
-  const animations = `${anim.type}-outline-svg ${anim.duration}ms ${
+  let animations = `${anim.type}-outline-svg ${anim.duration}ms ${
     anim.easingFunction
   } ${anim.delay}ms forwards${
     !anim.outlineOnly // if not outline-only
@@ -75,7 +75,7 @@ function DrawSVG(props, ref) {
       : ""
   }`;
 
-  return anim[0] !== "static" ? (
+  return (
     <span
       className={anim.type}
       style={{
@@ -84,8 +84,6 @@ function DrawSVG(props, ref) {
     >
       {child}
     </span>
-  ) : (
-    child
   );
 }
 

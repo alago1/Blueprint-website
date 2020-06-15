@@ -10,7 +10,12 @@ function About(props, ref) {
 
   useImperativeHandle(ref, () => ({
     undraw(duration = 2000, delay = 0, easingFunction = "ease") {
-      setUndraw([duration, delay, false, easingFunction]);
+      setUndraw({
+        duration: duration,
+        delay: delay,
+        outlineOnly: false,
+        easingFunction: easingFunction,
+      });
     },
   }));
 
