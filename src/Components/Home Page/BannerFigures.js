@@ -1,9 +1,9 @@
 import React from "react";
-import { ReactComponent as LightBulb } from "../svgs/2. Home Page/Light bulb.svg";
-import { ReactComponent as BallerinaSketch } from "../svgs/2. Home Page/Ballerina Sketch.svg";
-import { ReactComponent as BallerinaFilled } from "../svgs/2. Home Page/Ballerina Filled.svg";
-import DrawSVG from "./Animation/DrawSVG";
-import "./Styles/BannerFigures.css";
+import { ReactComponent as LightBulb } from "../../svgs/Home Page/Light bulb.svg";
+import { ReactComponent as BallerinaSketch } from "../../svgs/Home Page/Ballerina Sketch.svg";
+import { ReactComponent as BallerinaFilled } from "../../svgs/Home Page/Ballerina Filled.svg";
+import DrawSVG from "../Animation/DrawSVG";
+import "./BannerFigures.css";
 
 function BannerFigures(props) {
   return (

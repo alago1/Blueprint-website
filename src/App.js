@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
-import Heading from "./Components/Heading";
-import Home from "./Components/Home";
-import About from "./Components/About";
+import Heading from "./Components/Header/Heading";
+import Home from "./Components/Home Page/Home";
+import About from "./Components/About Page/About";
 import "./App.css";
 
 function App() {

@@ -1,17 +1,16 @@
 import React, {
-  Fragment,
   forwardRef,
   useImperativeHandle,
   useState,
   useEffect,
   useCallback,
 } from "react";
-import { ReactComponent as BannerText1 } from "../svgs/2. Home Page/Banner Text 1.svg";
-import { ReactComponent as BannerText2 } from "../svgs/2. Home Page/Banner Text 2.svg";
-import { ReactComponent as BannerText3 } from "../svgs/2. Home Page/Banner Text 3.svg";
+import { ReactComponent as BannerText1 } from "../../svgs/Home Page/Banner Text 1.svg";
+import { ReactComponent as BannerText2 } from "../../svgs/Home Page/Banner Text 2.svg";
+import { ReactComponent as BannerText3 } from "../../svgs/Home Page/Banner Text 3.svg";
 import BannerFigures from "./BannerFigures";
-import DrawSVG from "./Animation/DrawSVG";
-import "./Styles/Home.css";
+import DrawSVG from "../Animation/DrawSVG";
+import "./Home.css";
 
 function Home(props, ref) {
   const [shouldUndraw, setUndraw] = useState();
@@ -54,10 +53,10 @@ function Home(props, ref) {
 
   useEffect(() => scheduleNextEvent(), [animationStage, scheduleNextEvent]);
 
-  useEffect(() => console.log(animationStage), [animationStage]);
+  // useEffect(() => console.log(animationStage), [animationStage]);
 
   return (
-    <Fragment>
+    <div className="home-page">
       <div className="banner-text">
         <DrawSVG duration="6000" delay="5500" undraw={shouldUndraw}>
           <BannerText1
@@ -79,7 +78,7 @@ function Home(props, ref) {
         </DrawSVG>
       </div>
       <BannerFigures undraw={shouldUndraw} animationStage={animationStage} />
-    </Fragment>
+    </div>
   );
 }
 

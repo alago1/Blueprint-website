@@ -1,0 +1,19 @@
+.skills-banner {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-title {
+  height: 40%;
+  width: auto;
+  margin: 15px auto;
+}
+
+.skills-logos {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+}

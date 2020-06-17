@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { ReactComponent as HeaderName } from "../svgs/1. Header/Header_Name.svg";
+import { ReactComponent as HeaderName } from "../../svgs/Header/Header_Name.svg";
 import HeaderNav from "./HeaderNav";
-import DrawSVG from "./Animation/DrawSVG";
-import "./Styles/Heading.css";
+import DrawSVG from "../Animation/DrawSVG";
+import "./Heading.css";
 
 function Heading(props) {
   const [rendered, setRendered] = useState(false);

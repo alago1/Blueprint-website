@@ -1,0 +1,40 @@
+.portrait-banner {
+  width: 100vw;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.portrait {
+  width: auto;
+  height: 100%;
+  position: absolute;
+  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+img.portrait {
+  z-index: 1;
+  opacity: 0.98;
+  clip-path: circle(46%);
+  transition: opacity 0.5s ease;
+  transform: translateX(-51%); /* extra 1% cause my outlining skils suck*/
+}
+
+img.portrait:hover {
+  opacity: 0.4;
+}
+
+.portrait-description {
+  width: 50%;
+  height: 100%;
+}
+
+.portrait-container {
+  width: auto;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}

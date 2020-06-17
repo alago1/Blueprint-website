@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useRef } from "react";
-import { ReactComponent as HeaderHome } from "../svgs/1. Header/Header_Home.svg";
-import { ReactComponent as HeaderAbout } from "../svgs/1. Header/Header_About.svg";
-import { ReactComponent as HeaderContact } from "../svgs/1. Header/Header_Contact.svg";
-import DrawSVG from "./Animation/DrawSVG";
-import "./Styles/HeaderNav.css";
+import { ReactComponent as HeaderHome } from "../../svgs/Header/Header_Home.svg";
+import { ReactComponent as HeaderAbout } from "../../svgs/Header/Header_About.svg";
+import { ReactComponent as HeaderContact } from "../../svgs/Header/Header_Contact.svg";
+import DrawSVG from "../Animation/DrawSVG";
+import "./HeaderNav.css";
 import { useState } from "react";
 
 function HeaderNav(props) {
