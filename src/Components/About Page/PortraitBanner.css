@@ -38,12 +38,12 @@ div.selected-portrait.enter-animation svg.selected-portrait path {
 
 div.selected-portrait.enter-animation {
   opacity: 0;
-  animation: fade-in-image 1s ease 3.5s forwards;
+  animation: fade-in-image 1s ease 2.5s forwards;
 }
 
 .portrait-description {
   width: 50%;
-  height: 100%;
+  height: auto;
 }
 
 .portrait-container {

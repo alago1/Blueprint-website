@@ -49,6 +49,7 @@ function DrawSVG(props, ref) {
         outlineOnly: outlineOnly,
         easingFunction: easingFunction,
       });
+      return new Promise((resolve) => setTimeout(resolve, duration + delay));
     },
     playEndAnimation(
       duration = 2000,
@@ -63,6 +64,7 @@ function DrawSVG(props, ref) {
         outlineOnly: outlineOnly,
         easingFunction: easingFunction,
       });
+      return new Promise((resolve) => setTimeout(resolve, duration + delay));
     },
   }));
 

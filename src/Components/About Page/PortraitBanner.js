@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import { about_SelectedPortrait } from "../../Storage";
 import { ReactComponent as Portrait } from "../../svgs/About Page/Self_Portrait.svg";
@@ -15,17 +15,31 @@ import "./PortraitBanner.css";
 
 function PortraitBanner(props) {
   const selectedPortrait = useRecoilValue(about_SelectedPortrait);
+  const [displayedPortrait, setDisplayedPortrait] = useState(selectedPortrait);
+  const portraitRef = useRef();
 
   useEffect(() => {
-    //restarts the appear animation
-    let elem = document.getElementsByClassName(
-      "selected-portrait-container"
-    )[0];
-    elem.classList.remove("enter-animation");
+    if (selectedPortrait !== displayedPortrait) {
+      portraitRef.current
+        .playEndAnimation(1000, 0, true, "ease")
+        .then(() => setDisplayedPortrait(selectedPortrait));
+    } else {
+      new Promise(() => {
+        //restarts the appear animation
+        let elem = document.getElementsByClassName(
+          "selected-portrait-container"
+        )[0];
+        restartAnimation(elem, "enter-animation");
+      }).then(portraitRef.current.playStartAnimation(3000, 0, true, "ease"));
+    }
+  }, [selectedPortrait, displayedPortrait]);
+
+  const restartAnimation = (elem, animClassName) => {
+    elem.classList.remove(animClassName);
     // forces the browser to make all necessary calculations before evaluating the animations
     void elem.offsetWidth;
-    elem.classList.add("enter-animation");
-  }, [selectedPortrait]);
+    elem.classList.add(animClassName);
+  };
 
   const logosHandle = {
     HtmlCss: <HtmlCssLogo className="selected-portrait" />,
@@ -50,19 +64,23 @@ function PortraitBanner(props) {
     <div className="portrait-banner">
       <div className="portrait-container">
         <DrawSVG
-          delay="1500"
+          delay="3000"
           duration="3000"
           outlineOnly="true"
           easingFunction="ease"
           undraw={props.undraw}
+          ref={portraitRef}
         >
-          {getPortraitComponent(selectedPortrait)}
+          {getPortraitComponent(displayedPortrait)}
         </DrawSVG>
         <div
           className="selected-portrait enter-animation selected-portrait-container"
           style={{
             visibility:
-              typeof props.undraw === "undefined" ? "visible" : "hidden",
+              typeof props.undraw === "undefined" &&
+              selectedPortrait === displayedPortrait
+                ? "visible"
+                : "hidden",
           }}
         >
           {selectedPortrait === "Portrait" ? (
@@ -72,7 +90,7 @@ function PortraitBanner(props) {
               className={"selected-portrait filled"}
             />
           ) : (
-            getPortraitComponent(selectedPortrait)
+            getPortraitComponent(displayedPortrait)
           )}
         </div>
       </div>
