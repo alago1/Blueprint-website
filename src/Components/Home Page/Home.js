@@ -18,12 +18,12 @@ function Home(props, ref) {
 
   const animEventDuration = [
     //stage : ms
-    5500,
-    2500,
-    1600,
-    2900,
-    100,
-    3400,
+    5450,
+    2450,
+    1550,
+    2850,
+    50,
+    3350,
     1,
   ];
 

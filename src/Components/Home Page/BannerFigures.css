@@ -55,6 +55,8 @@
   visibility: hidden;
 }
 
+/* Ballerina specific */
+
 @keyframes sparks-appear {
   from {
     visibility: visible;
@@ -84,7 +86,7 @@
 
 @keyframes ballerina-appear {
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 

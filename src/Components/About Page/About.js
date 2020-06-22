@@ -2,6 +2,7 @@ import React, { useState, forwardRef, useImperativeHandle } from "react";
 import { ReactComponent as HeaderAbout } from "../../svgs/Header/Header_About.svg";
 import PortraitBanner from "./PortraitBanner";
 import SkillsBanner from "./SkillsBanner";
+import DrawSVG from "../Animation/DrawSVG";
 import "./About.css";
 
 function About(props, ref) {
@@ -21,11 +22,13 @@ function About(props, ref) {
   return (
     <div className="about-page">
       <div className="page-header">
-        <HeaderAbout className="page-title" />
+        <DrawSVG delay="500" duration="3000" undraw={shouldUndraw}>
+          <HeaderAbout className="page-title" />
+        </DrawSVG>
       </div>
       <div className="page-content">
         <PortraitBanner undraw={shouldUndraw} />
-        <SkillsBanner />
+        <SkillsBanner undraw={shouldUndraw} />
       </div>
     </div>
   );

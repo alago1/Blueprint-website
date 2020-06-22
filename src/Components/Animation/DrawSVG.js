@@ -80,6 +80,7 @@ function DrawSVG(props, ref) {
       className={anim.type}
       style={{
         animation: animations,
+        ...props.style,
       }}
     >
       {child}

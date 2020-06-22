@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { RecoilRoot } from "recoil";
 import Heading from "./Components/Header/Heading";
 import Home from "./Components/Home Page/Home";
 import About from "./Components/About Page/About";
@@ -13,7 +14,6 @@ function App() {
     Contact: {},
   };
 
-  //need to take out the setcurrpage from headernav cause it immediately changes the page without giving a change to undraw
   const handleChangePage = (pageName) => {
     if (pageName in pages) {
       currPageRef.current.undraw();
@@ -24,12 +24,14 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header>
-        <Heading signal={(newPage) => handleChangePage(newPage)} />
-      </header>
-      <main>{pages[currPage]}</main>
-    </div>
+    <RecoilRoot>
+      <div className="App">
+        <header>
+          <Heading signal={(newPage) => handleChangePage(newPage)} />
+        </header>
+        <main>{pages[currPage]}</main>
+      </div>
+    </RecoilRoot>
   );
 }
 

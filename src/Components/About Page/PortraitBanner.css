@@ -6,7 +6,7 @@
   align-items: stretch;
 }
 
-.portrait {
+.selected-portrait {
   width: auto;
   height: 100%;
   position: absolute;
@@ -15,7 +15,7 @@
   transform: translateX(-50%);
 }
 
-img.portrait {
+img.selected-portrait {
   z-index: 1;
   opacity: 0.98;
   clip-path: circle(46%);
@@ -23,8 +23,22 @@ img.portrait {
   transform: translateX(-51%); /* extra 1% cause my outlining skils suck*/
 }
 
-img.portrait:hover {
-  opacity: 0.4;
+.selected-portrait.filled {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.selected-portrait.filled:hover {
+  opacity: 0;
+}
+
+div.selected-portrait.enter-animation svg.selected-portrait path {
+  stroke-width: 0;
+}
+
+div.selected-portrait.enter-animation {
+  opacity: 0;
+  animation: fade-in-image 1s ease 3.5s forwards;
 }
 
 .portrait-description {
@@ -37,4 +51,10 @@ img.portrait:hover {
   height: 100%;
   margin: auto;
   position: relative;
+}
+
+@keyframes fade-in-image {
+  to {
+    opacity: 0.98;
+  }
 }
