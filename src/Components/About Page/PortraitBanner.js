@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
-import { about_SelectedPortrait } from "../../Storage";
+import { about_SelectedPortrait } from "./atoms";
 import { ReactComponent as Portrait } from "../../svgs/About Page/Self_Portrait.svg";
 import PortraitPhoto from "../../imgs/PortraitPhoto.png";
 //this needs to be replaced with links later but for testing/now we'll go with this
@@ -26,9 +26,7 @@ function PortraitBanner(props) {
     } else {
       new Promise(() => {
         //restarts the appear animation
-        let elem = document.getElementsByClassName(
-          "selected-portrait-container"
-        )[0];
+        let elem = document.getElementsByClassName("enter-animation")[0];
         restartAnimation(elem, "enter-animation");
       }).then(portraitRef.current.playStartAnimation(3000, 0, true, "ease"));
     }
@@ -74,7 +72,7 @@ function PortraitBanner(props) {
           {getPortraitComponent(displayedPortrait)}
         </DrawSVG>
         <div
-          className="selected-portrait enter-animation selected-portrait-container"
+          className="enter-animation"
           style={{
             visibility:
               typeof props.undraw === "undefined" &&
@@ -84,11 +82,7 @@ function PortraitBanner(props) {
           }}
         >
           {selectedPortrait === "Portrait" ? (
-            <img
-              src={PortraitPhoto}
-              alt=""
-              className={"selected-portrait filled"}
-            />
+            <img src={PortraitPhoto} alt="" className={"selected-portrait"} />
           ) : (
             getPortraitComponent(displayedPortrait)
           )}

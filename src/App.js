@@ -3,6 +3,7 @@ import { RecoilRoot } from "recoil";
 import Heading from "./Components/Header/Heading";
 import Home from "./Components/Home Page/Home";
 import About from "./Components/About Page/About";
+import Contact from "./Components/Contact Page/Contact";
 import "./App.css";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
   const pages = {
     Home: <Home ref={currPageRef} />,
     About: <About ref={currPageRef} />,
-    Contact: {},
+    Contact: <Contact ref={currPageRef} />,
   };
 
   const handleChangePage = (pageName) => {

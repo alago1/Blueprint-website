@@ -10,8 +10,7 @@ function DrawSVG(props, ref) {
   const child = React.Children.only(props.children);
   const [anim, setAnim] = useState({
     type:
-      props.animation &&
-      ["comp", "decomp", "static"].indexOf(props.animation) >= 0
+      props.animation && ["comp", "decomp"].indexOf(props.animation) >= 0
         ? props.animation
         : "comp", //function
     duration: props.duration ? props.duration : 2000, //animation duration

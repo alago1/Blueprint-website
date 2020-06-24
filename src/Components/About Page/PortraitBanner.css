@@ -1,18 +1,38 @@
 .portrait-banner {
-  width: 100vw;
-  height: 60%;
+  width: 100%;
+  height: 385px;
   display: flex;
   flex-direction: row;
   align-items: stretch;
+}
+
+.portrait-description {
+  width: 50%;
+  height: auto;
+  overflow-y: hidden;
+}
+
+.portrait-container {
+  width: 50%;
+  height: auto;
+  position: relative;
+  margin: 10px;
 }
 
 .selected-portrait {
   width: auto;
   height: 100%;
   position: absolute;
-  margin: auto;
+
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+}
+
+div.enter-animation {
+  height: 100%;
+  opacity: 0;
+  animation: fade-in 1s ease 2.5s forwards;
 }
 
 img.selected-portrait {
@@ -20,40 +40,17 @@ img.selected-portrait {
   opacity: 0.98;
   clip-path: circle(46%);
   transition: opacity 0.5s ease;
-  transform: translateX(-51%); /* extra 1% cause my outlining skils suck*/
 }
 
-.selected-portrait.filled {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.selected-portrait.filled:hover {
+img.selected-portrait:hover {
   opacity: 0;
 }
 
-div.selected-portrait.enter-animation svg.selected-portrait path {
+div.enter-animation svg.selected-portrait path {
   stroke-width: 0;
 }
 
-div.selected-portrait.enter-animation {
-  opacity: 0;
-  animation: fade-in-image 1s ease 2.5s forwards;
-}
-
-.portrait-description {
-  width: 50%;
-  height: auto;
-}
-
-.portrait-container {
-  width: auto;
-  height: 100%;
-  margin: auto;
-  position: relative;
-}
-
-@keyframes fade-in-image {
+@keyframes fade-in {
   to {
     opacity: 0.98;
   }

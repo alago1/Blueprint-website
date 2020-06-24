@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { about_SelectedPortrait } from "../../Storage";
+import { about_SelectedPortrait } from "./atoms";
 import { ReactComponent as Portrait } from "../../svgs/About Page/Self_Portrait.svg";
 //this needs to be replaced with links later but for testing/now we'll go with this
 import { ReactComponent as HtmlCssLogo } from "../../svgs/About Page/Logos/Html + Css Logo.svg";
@@ -87,22 +87,18 @@ function SkillsLogos(props) {
       {order.map((elem, index) => {
         return (
           <div className={"logo-box " + elem} key={index}>
-            <div className="stacked-logos">
-              <DrawSVG
-                delay={1500 + index * 300}
-                duration="3000"
-                outlineOnly="true"
-                easingFunction="ease"
-                undraw={props.undraw}
-              >
-                {logosHandle[elem]}
-              </DrawSVG>
-              {elem !== "Portrait" && typeof props.undraw === "undefined" && (
-                <div className="fade-in">{logosHandle[elem]}</div>
-              )}
-            </div>
-            {/* h3 is probably placeholder ...? */}
-            {/* <h3 className="logo-subtitle">{logosHandle[elem].subtitle}</h3> */}
+            <DrawSVG
+              delay={1500 + index * 300}
+              duration="3000"
+              outlineOnly="true"
+              easingFunction="ease"
+              undraw={props.undraw}
+            >
+              {logosHandle[elem]}
+            </DrawSVG>
+            {elem !== "Portrait" && typeof props.undraw === "undefined" && (
+              <div className="fade-in">{logosHandle[elem]}</div>
+            )}
           </div>
         );
       })}

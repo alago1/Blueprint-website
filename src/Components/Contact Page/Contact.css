@@ -1,0 +1,35 @@
+.contact-page {
+  height: 100%;
+  width: 100%;
+}
+
+.contact-page.page-content {
+  /* height: calc(100% - 50px); */
+  /* height: calc(100vh - 100px); */
+  /* min-height: calc(100vh - 100px); */
+  height: auto;
+  width: 100%;
+}
+
+.icon-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  height: auto;
+  width: auto;
+  margin-top: 100px;
+}
+
+.icon-box {
+  margin: auto 30px;
+}
+
+.icon {
+  /* transform: translateY(100px); */
+}
+
+.icon path {
+  stroke-width: 1;
+}

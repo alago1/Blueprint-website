@@ -22,14 +22,15 @@ function BannerFigures(props) {
           }}
         />
       </DrawSVG>
-      <DrawSVG animation="static" undraw={props.undraw}>
-        <LightBulb
-          className="figure-style light-bulb on"
-          style={{
-            visibility: props.animationStage === 2 ? "visible" : "hidden",
-          }}
-        />
-      </DrawSVG>
+      <LightBulb
+        className="figure-style light-bulb on"
+        style={{
+          visibility:
+            props.animationStage === 2 && typeof props.undraw === "undefined"
+              ? "visible"
+              : "hidden",
+        }}
+      />
       <DrawSVG
         duration="2000"
         delay="9600"
@@ -44,14 +45,15 @@ function BannerFigures(props) {
           }}
         />
       </DrawSVG>
-      <DrawSVG animation="static" undraw={props.undraw}>
-        <BallerinaFilled
-          className="figure-style ballerina-filled"
-          style={{
-            visibility: props.animationStage > 5 ? "visible" : "hidden",
-          }}
-        />
-      </DrawSVG>
+      <BallerinaFilled
+        className="figure-style ballerina-filled"
+        style={{
+          visibility:
+            props.animationStage > 5 && typeof props.undraw === "undefined"
+              ? "visible"
+              : "hidden",
+        }}
+      />
     </div>
   );
 }

@@ -26,7 +26,7 @@ function About(props, ref) {
           <HeaderAbout className="page-title" />
         </DrawSVG>
       </div>
-      <div className="page-content">
+      <div className="about-page page-content">
         <PortraitBanner undraw={shouldUndraw} />
         <SkillsBanner undraw={shouldUndraw} />
       </div>
