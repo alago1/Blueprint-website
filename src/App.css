@@ -53,8 +53,21 @@ main {
   stroke-width: 1;
 }
 
-/* @media (min-height: 100vh) {
-  main {
-    height: 100%;
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
-} */
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.universalFadeOut {
+  animation: fade-out 1s ease 0s forwards;
+}

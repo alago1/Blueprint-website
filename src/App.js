@@ -20,7 +20,7 @@ function App() {
       currPageRef.current.undraw();
       setTimeout(() => setCurrPage(pageName), 2500);
     } else {
-      console.log("Unknown Page: " + pageName);
+      console.log("Unknown Page Request.");
     }
   };
 

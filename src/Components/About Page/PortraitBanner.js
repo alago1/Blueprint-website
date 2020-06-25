@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import { about_SelectedPortrait } from "./atoms";
-import { ReactComponent as Portrait } from "../../svgs/About Page/Self_Portrait.svg";
 import PortraitPhoto from "../../imgs/PortraitPhoto.png";
-//this needs to be replaced with links later but for testing/now we'll go with this
-import { ReactComponent as HtmlCssLogo } from "../../svgs/About Page/Logos/Html + Css Logo.svg";
-import { ReactComponent as JsLogo } from "../../svgs/About Page/Logos/Js Logo.svg";
-import { ReactComponent as ReactLogo } from "../../svgs/About Page/Logos/React Logo.svg";
-import { ReactComponent as GitLogo } from "../../svgs/About Page/Logos/Git Logo.svg";
-import { ReactComponent as LinuxLogo } from "../../svgs/About Page/Logos/Linux Logo.svg";
-import { ReactComponent as PythonLogo } from "../../svgs/About Page/Logos/Python Logo.svg";
+import { logosHandle } from "./logosHandle";
+
 import DrawSVG from "../Animation/DrawSVG.js";
 import "./PortraitBanner.css";
 
@@ -20,17 +14,48 @@ function PortraitBanner(props) {
 
   useEffect(() => {
     if (selectedPortrait !== displayedPortrait) {
+      //occurs when a new portrait has just been selected
+      //
+      //fade-out the displayedPortrait's description
+      let elem = document.getElementsByClassName("portrait-description")[0];
+      elem.classList.add("exit-animation");
+      elem.classList.remove("enter-animation");
+      void elem.offsetWidth;
+
+      //undraw the displayedPortrait
       portraitRef.current
         .playEndAnimation(1000, 0, true, "ease")
-        .then(() => setDisplayedPortrait(selectedPortrait));
+        .then(() => setDisplayedPortrait(selectedPortrait))
+        .then(() => elem.classList.remove("exit-animation"));
     } else {
+      //occurs when a new displayedPortrait has just been set (aka finished undrawing the previous one)
       new Promise(() => {
+        //fade-in the new portrait and description
+        //
+        // temporary solution: since the filled portrait is the second thing in the page, it will always be the second element caught here
+        let portrait_elem = document.getElementsByClassName(
+          "enter-animation"
+        )[0];
+        let descript_elem = document.getElementsByClassName(
+          "portrait-description"
+        )[0];
         //restarts the appear animation
-        let elem = document.getElementsByClassName("enter-animation")[0];
-        restartAnimation(elem, "enter-animation");
+        restartAnimation(portrait_elem, "enter-animation");
+        restartAnimation(descript_elem, "enter-animation");
       }).then(portraitRef.current.playStartAnimation(3000, 0, true, "ease"));
     }
   }, [selectedPortrait, displayedPortrait]);
+
+  useEffect(() => {
+    //occurs when undraw is called
+    if (typeof props.undraw !== "undefined") {
+      //make sure that description fades-out
+      let elem = document.getElementsByClassName("portrait-description")[0];
+      elem.classList.add("exit-animation");
+      elem.classList.remove("enter-animation");
+      void elem.offsetWidth;
+    }
+  }, [props.undraw]);
 
   const restartAnimation = (elem, animClassName) => {
     elem.classList.remove(animClassName);
@@ -39,40 +64,23 @@ function PortraitBanner(props) {
     elem.classList.add(animClassName);
   };
 
-  const logosHandle = {
-    HtmlCss: <HtmlCssLogo className="selected-portrait" />,
-    Js: <JsLogo className="selected-portrait" />,
-    React: <ReactLogo className="selected-portrait" />,
-    Git: <GitLogo className="selected-portrait" />,
-    Linux: <LinuxLogo className="selected-portrait" />,
-    Python: <PythonLogo className="selected-portrait" />,
-    Portrait: <Portrait className="selected-portrait" />,
-  };
-
-  const getPortraitComponent = (name) => {
+  const getPortrait = (name) => {
     if (name in logosHandle) {
       return logosHandle[name];
     }
-    // if name is not a key in the logosHandle, Portrait is showed instead
-    console.log("Unrecognizable portrait name.");
-    return logosHandle.Portrait;
+    // if name is not a key in the logosHandle, SelfPortrait is showed instead
+    console.log("Unrecognizable portrait name. " + name);
+    return logosHandle.SelfPortrait;
   };
 
   return (
     <div className="portrait-banner">
       <div className="portrait-container">
-        <DrawSVG
-          delay="3000"
-          duration="3000"
-          outlineOnly="true"
-          easingFunction="ease"
-          undraw={props.undraw}
-          ref={portraitRef}
-        >
-          {getPortraitComponent(displayedPortrait)}
+        <DrawSVG undraw={props.undraw} ref={portraitRef}>
+          {getPortrait(displayedPortrait).portrait}
         </DrawSVG>
         <div
-          className="enter-animation"
+          className="portrait enter-animation"
           style={{
             visibility:
               typeof props.undraw === "undefined" &&
@@ -81,21 +89,23 @@ function PortraitBanner(props) {
                 : "hidden",
           }}
         >
-          {selectedPortrait === "Portrait" ? (
-            <img src={PortraitPhoto} alt="" className={"selected-portrait"} />
+          {selectedPortrait === "SelfPortrait" ? (
+            <img src={PortraitPhoto} alt="" className="selected-portrait" />
           ) : (
-            getPortraitComponent(displayedPortrait)
+            getPortrait(displayedPortrait).portrait
           )}
         </div>
       </div>
-      <div className="portrait-description">
+      <div className="portrait-description enter-animation">
         {/* placeholder for svg, text, or box*/}
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo veniam
-          nisi libero eum labore, fuga ipsa, cum numquam, perferendis nostrum
-          dignissimos optio! Maxime quasi autem qui officiis corporis,
-          aspernatur suscipit?
-        </h1>
+        <div className="description-box">
+          <span className="title-wrapper">
+            <h1 className="title">{getPortrait(displayedPortrait).title}</h1>
+          </span>
+          <h3 className="description">
+            {getPortrait(displayedPortrait).description}
+          </h3>
+        </div>
       </div>
     </div>
   );

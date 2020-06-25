@@ -16,6 +16,7 @@ function About(props, ref) {
         outlineOnly: false,
         easingFunction: easingFunction,
       });
+      return new Promise((resolve) => setTimeout(resolve, duration + delay));
     },
   }));
 

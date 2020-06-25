@@ -35,6 +35,12 @@
 }
 
 /* Light Bulb element properties */
+.light-bulb path {
+  /* moving the svg up because I think it looks better */
+  /* must move the path instead of the svg itself because otherwise the "svg's border-box" moves and blocks the header  */
+  transform: translateY(-50px);
+}
+
 .off path {
   stroke-width: 2;
 }

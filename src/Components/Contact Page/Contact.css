@@ -24,12 +24,33 @@
 
 .icon-box {
   margin: auto 30px;
+  position: relative;
 }
 
 .icon {
-  /* transform: translateY(100px); */
+  position: relative;
 }
 
 .icon path {
-  stroke-width: 1;
+  stroke-width: 2;
+}
+
+.icon g.subtitle-text path {
+  stroke-width: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  animation: none;
+}
+
+.icon:hover g.subtitle-text path {
+  opacity: 1;
+}
+
+.contact-icon.enter-animation {
+  animation: fade-in 1s ease 3s forwards;
+}
+
+.contact-icon.enter-animation .icon {
+  position: absolute;
+  transform: translateY(-102%);
 }

@@ -19,6 +19,7 @@ function Contact(props, ref) {
         outlineOnly: false,
         easingFunction: easingFunction,
       });
+      return new Promise((resolve) => setTimeout(resolve, duration + delay));
     },
   }));
 
@@ -60,14 +61,18 @@ function Contact(props, ref) {
                   easingFunction="ease"
                   undraw={shouldUndraw}
                 >
+                  {iconsHandle[elem].component}
+                </DrawSVG>
+                <div className="contact-icon enter-animation">
                   <a
                     href={iconsHandle[elem].href}
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-                    {iconsHandle[elem].component}
+                    {typeof shouldUndraw === "undefined" &&
+                      iconsHandle[elem].component}
                   </a>
-                </DrawSVG>
+                </div>
               </div>
             );
           })}

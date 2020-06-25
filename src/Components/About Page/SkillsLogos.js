@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilState } from "recoil";
 import { about_SelectedPortrait } from "./atoms";
-import { ReactComponent as Portrait } from "../../svgs/About Page/Self_Portrait.svg";
+import { ReactComponent as SelfPortrait } from "../../svgs/About Page/Self_Portrait.svg";
 //this needs to be replaced with links later but for testing/now we'll go with this
 import { ReactComponent as HtmlCssLogo } from "../../svgs/About Page/Logos/Html + Css Logo.svg";
 import { ReactComponent as JsLogo } from "../../svgs/About Page/Logos/Js Logo.svg";
@@ -28,7 +28,7 @@ function SkillsLogos(props) {
     "HtmlCss",
     "Js",
     "React",
-    "Portrait",
+    "SelfPortrait",
     "Git",
     "Linux",
     "Python",
@@ -37,7 +37,7 @@ function SkillsLogos(props) {
   const logoClassName = (logoName) =>
     selectedLogo === logoName ? "logo selected" : "logo";
 
-  const logosHandle = {
+  const skillsLogosHandle = {
     HtmlCss: (
       <HtmlCssLogo
         className={logoClassName("HtmlCss")}
@@ -74,10 +74,10 @@ function SkillsLogos(props) {
         onClick={() => handleChangeLogo("Python")}
       />
     ),
-    Portrait: (
-      <Portrait
-        className={logoClassName("Portrait")}
-        onClick={() => handleChangeLogo("Portrait")}
+    SelfPortrait: (
+      <SelfPortrait
+        className={logoClassName("SelfPortrait")}
+        onClick={() => handleChangeLogo("SelfPortrait")}
       />
     ),
   };
@@ -94,10 +94,12 @@ function SkillsLogos(props) {
               easingFunction="ease"
               undraw={props.undraw}
             >
-              {logosHandle[elem]}
+              {skillsLogosHandle[elem]}
             </DrawSVG>
-            {elem !== "Portrait" && typeof props.undraw === "undefined" && (
-              <div className="fade-in">{logosHandle[elem]}</div>
+            {elem !== "SelfPortrait" && typeof props.undraw === "undefined" && (
+              <div className="logo-icon enter-animation">
+                {skillsLogosHandle[elem]}
+              </div>
             )}
           </div>
         );

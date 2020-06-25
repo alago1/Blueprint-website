@@ -44,7 +44,7 @@ function HeaderNav(props) {
     Object.keys(pages)
       .filter((page) => page !== currPage)
       //first draw animation takes a bigger delay than others
-      .forEach((page) => pageRefs[page].current.playStartAnimation(4000, 2000));
+      .forEach((page) => pageRefs[page].current.playStartAnimation(3000, 2000));
   }, [pages, pageRefs, currPage]);
 
   const handleChangePage = (newPage) => {
@@ -66,7 +66,7 @@ function HeaderNav(props) {
       //signals newPage to app
       signalPage(newPage);
 
-      //delay so that end animation is not cut off be the component being unmounted
+      //delay so that page's end animation is not cut off be the component being unmounted
       //be careful with this delay: if its bigger than the animation duration+delay some visual glitches might occur
       setTimeout(
         () => {
