@@ -68,6 +68,8 @@ main {
   }
 }
 
-.universalFadeOut {
-  animation: fade-out 1s ease 0s forwards;
+@keyframes reset-stroke-width {
+  to {
+    stroke-width: 0;
+  }
 }

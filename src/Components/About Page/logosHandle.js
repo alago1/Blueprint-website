@@ -1,22 +1,15 @@
 import React from "react";
 import { ReactComponent as SelfPortrait } from "../../svgs/About Page/Self_Portrait.svg";
 //this needs to be replaced with links later but for testing/now we'll go with this
-import { ReactComponent as HtmlCssLogo } from "../../svgs/About Page/Logos/Html + Css Logo.svg";
-import { ReactComponent as JsLogo } from "../../svgs/About Page/Logos/Js Logo.svg";
+import { ReactComponent as JsHtmlCssLogo } from "../../svgs/About Page/Logos/Js + Html + Css Logo.svg";
 import { ReactComponent as ReactLogo } from "../../svgs/About Page/Logos/React Logo.svg";
-import { ReactComponent as GitLogo } from "../../svgs/About Page/Logos/Git Logo.svg";
-import { ReactComponent as LinuxLogo } from "../../svgs/About Page/Logos/Linux Logo.svg";
+import { ReactComponent as GitLinuxLogo } from "../../svgs/About Page/Logos/Linux + Git Logo.svg";
 import { ReactComponent as PythonLogo } from "../../svgs/About Page/Logos/Python Logo.svg";
 
 export const logosHandle = {
-  HtmlCss: {
-    portrait: <HtmlCssLogo className="selected-portrait" />,
-    title: "HTML5 & CSS3",
-    description: "I'm aight",
-  },
-  Js: {
-    portrait: <JsLogo className="selected-portrait" />,
-    title: "Javascript",
+  JsHtmlCss: {
+    portrait: <JsHtmlCssLogo className="selected-portrait" />,
+    title: "HTML5, CSS3, and Javascript",
     description: `  I have a strong understanding of the use of semantic HTML and CSS as well as Javascript features including those added in ES6+ (such as Promises, async, await).`,
   },
   React: {
@@ -28,13 +21,8 @@ export const logosHandle = {
     - Hooks API
     - Recoil js (Learning)`,
   },
-  Git: {
-    portrait: <GitLogo className="selected-portrait" />,
-    title: "Git",
-    description: "IDK, im alright",
-  },
-  Linux: {
-    portrait: <LinuxLogo className="selected-portrait" />,
+  GitLinux: {
+    portrait: <GitLinuxLogo className="selected-portrait" />,
     title: "Common in the workplace",
     description: `  Among the common workplace/workflow tech, I have a basic understanding of how to work with a linux kernel as well as reading and implementing Bash scripts. Additionally, with regards to Version Control Systems, I am familiar with using VCS's such as Git.
       

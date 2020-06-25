@@ -1,6 +1,6 @@
 import React from "react";
 import SkillsLogos from "./SkillsLogos";
-import { ReactComponent as SkillsTitle } from "../../svgs/About Page/Logos/Skills Text.svg";
+import { ReactComponent as SkillsTitle } from "../../svgs/About Page/Skills Text.svg";
 import DrawSVG from "../Animation/DrawSVG";
 import "./SkillsBanner.css";
 

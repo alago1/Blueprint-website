@@ -21,6 +21,11 @@
   animation: inherit;
 }
 
+.comp path,
+.decomp path {
+  transition: stroke-width 0.3s ease;
+}
+
 @keyframes comp-outline-svg {
   from {
     stroke-width: 1;

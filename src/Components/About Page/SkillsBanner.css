@@ -10,3 +10,7 @@
   margin: 30px auto 15px auto;
   height: 10%;
 }
+
+.skills-title path {
+  stroke-width: 0;
+}

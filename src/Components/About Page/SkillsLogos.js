@@ -3,11 +3,9 @@ import { useRecoilState } from "recoil";
 import { about_SelectedPortrait } from "./atoms";
 import { ReactComponent as SelfPortrait } from "../../svgs/About Page/Self_Portrait.svg";
 //this needs to be replaced with links later but for testing/now we'll go with this
-import { ReactComponent as HtmlCssLogo } from "../../svgs/About Page/Logos/Html + Css Logo.svg";
-import { ReactComponent as JsLogo } from "../../svgs/About Page/Logos/Js Logo.svg";
+import { ReactComponent as JsHtmlCss } from "../../svgs/About Page/Logos/Js + Html + Css Logo.svg";
 import { ReactComponent as ReactLogo } from "../../svgs/About Page/Logos/React Logo.svg";
-import { ReactComponent as GitLogo } from "../../svgs/About Page/Logos/Git Logo.svg";
-import { ReactComponent as LinuxLogo } from "../../svgs/About Page/Logos/Linux Logo.svg";
+import { ReactComponent as GitLinuxLogo } from "../../svgs/About Page/Logos/Linux + Git Logo.svg";
 import { ReactComponent as PythonLogo } from "../../svgs/About Page/Logos/Python Logo.svg";
 import DrawSVG from "../Animation/DrawSVG";
 import "./SkillsLogos.css";
@@ -24,30 +22,16 @@ function SkillsLogos(props) {
   };
 
   // Easy way to modify order without copy pasting inside logosHandle
-  const order = [
-    "HtmlCss",
-    "Js",
-    "React",
-    "SelfPortrait",
-    "Git",
-    "Linux",
-    "Python",
-  ];
+  const order = ["JsHtmlCss", "React", "SelfPortrait", "GitLinux", "Python"];
 
   const logoClassName = (logoName) =>
     selectedLogo === logoName ? "logo selected" : "logo";
 
   const skillsLogosHandle = {
-    HtmlCss: (
-      <HtmlCssLogo
-        className={logoClassName("HtmlCss")}
-        onClick={() => handleChangeLogo("HtmlCss")}
-      />
-    ),
-    Js: (
-      <JsLogo
-        className={logoClassName("Js")}
-        onClick={() => handleChangeLogo("Js")}
+    JsHtmlCss: (
+      <JsHtmlCss
+        className={logoClassName("JsHtmlCss")}
+        onClick={() => handleChangeLogo("JsHtmlCss")}
       />
     ),
     React: (
@@ -56,16 +40,12 @@ function SkillsLogos(props) {
         onClick={() => handleChangeLogo("React")}
       />
     ),
-    Git: (
-      <GitLogo
-        className={logoClassName("Git")}
-        onClick={() => handleChangeLogo("Git")}
-      />
-    ),
-    Linux: (
-      <LinuxLogo
-        className={logoClassName("Linux")}
-        onClick={() => handleChangeLogo("Linux")}
+    GitLinux: (
+      <GitLinuxLogo
+        className={logoClassName("GitLinux")}
+        onClick={() => {
+          handleChangeLogo("GitLinux");
+        }}
       />
     ),
     Python: (
