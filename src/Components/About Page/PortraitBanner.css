@@ -76,6 +76,7 @@ div.portrait.enter-animation svg.selected-portrait path {
 .title-wrapper > h1.title {
   margin: 0px;
   color: rgba(245, 245, 245, 1);
+  text-decoration: underline;
 }
 
 .description-box > h3.description {
