@@ -61,7 +61,7 @@ function HeaderNav(props) {
               pageRefs[page].current.playEndAnimation(1500, 1000)
             );
       }
-      console.log("Setting new page to " + newPage);
+      // console.log("Setting new page to " + newPage);
 
       //signals newPage to app
       signalPage(newPage);
