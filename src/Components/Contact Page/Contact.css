@@ -37,6 +37,7 @@
 
 .icon g.subtitle-text path {
   stroke-width: 0;
+  fill: rgba(245, 245, 245, 0.65);
   opacity: 0;
   transition: opacity 1s ease;
   animation: none;
@@ -52,5 +53,5 @@
 
 .contact-icon.enter-animation .icon {
   position: absolute;
-  transform: translateY(-102%);
+  transform: translateY(calc(-100% - 4px));
 }

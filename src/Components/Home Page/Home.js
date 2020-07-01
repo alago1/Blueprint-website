@@ -60,22 +60,49 @@ function Home(props, ref) {
   return (
     <div className="home-page">
       <div className="banner-text">
-        <DrawSVG duration="6000" delay="5500" undraw={shouldUndraw}>
+        <DrawSVG
+          duration="6000"
+          delay="5500"
+          undraw={shouldUndraw}
+          style={{
+            width: "100%",
+          }}
+        >
           <BannerText1
             className="banner text1"
-            style={{ visibility: animationStage >= 1 ? "visible" : "hidden" }}
+            style={{
+              visibility: animationStage >= 1 ? "visible" : "hidden",
+            }}
           />
         </DrawSVG>
-        <DrawSVG duration="6000" delay="12500" undraw={shouldUndraw}>
+        <DrawSVG
+          duration="6000"
+          delay="12500"
+          undraw={shouldUndraw}
+          style={{
+            width: "93%",
+          }}
+        >
           <BannerText2
             className="banner text2"
-            style={{ visibility: animationStage >= 4 ? "visible" : "hidden" }}
+            style={{
+              visibility: animationStage >= 4 ? "visible" : "hidden",
+            }}
           />
         </DrawSVG>
-        <DrawSVG duration="6000" delay="15000" undraw={shouldUndraw}>
+        <DrawSVG
+          duration="6000"
+          delay="15000"
+          undraw={shouldUndraw}
+          style={{
+            width: "79%",
+          }}
+        >
           <BannerText3
             className="banner text3"
-            style={{ visibility: animationStage >= 5 ? "visible" : "hidden" }}
+            style={{
+              visibility: animationStage >= 5 ? "visible" : "hidden",
+            }}
           />
         </DrawSVG>
       </div>
