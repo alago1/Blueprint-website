@@ -97,7 +97,6 @@ function PortraitBanner(props) {
         </div>
       </div>
       <div className="portrait-description enter-animation">
-        {/* placeholder for svg, text, or box*/}
         <div className="description-box">
           <span className="title-wrapper">
             <h1 className="title">{getPortrait(displayedPortrait).title}</h1>

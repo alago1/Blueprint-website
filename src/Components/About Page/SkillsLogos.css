@@ -54,7 +54,7 @@
 
 .logo-icon.enter-animation > svg {
   opacity: 0;
-  animation: fade-in 1s ease 5s forwards;
+  animation: fade-in 1s ease 3s forwards;
 }
 
 .logo-icon.enter-animation > svg path {

@@ -84,3 +84,19 @@ div.portrait.enter-animation svg.selected-portrait path {
   font-size: 1.2rem;
   color: rgba(245, 245, 245, 0.9);
 }
+
+@media only screen and (max-width: 768px) {
+  .portrait-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .portrait-description,
+  .description-box {
+    width: 100%;
+  }
+
+  .portrait-banner {
+    flex-direction: column;
+  }
+}

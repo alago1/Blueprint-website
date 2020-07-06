@@ -86,7 +86,7 @@
 /* Ballerina Element Properties */
 
 .ballerina-sketch path {
-  stroke-width: 3;
+  stroke-width: 3 !important;
 }
 
 .ballerina-filled path {
@@ -102,5 +102,12 @@
 @keyframes disable-object {
   to {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .figures {
+    width: 100%;
+    height: 60%;
   }
 }

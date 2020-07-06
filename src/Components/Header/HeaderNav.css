@@ -1,4 +1,4 @@
-nav {
+nav.pages-nav-bar {
   display: flex;
   flex-direction: row;
   flex-grow: 0;
@@ -24,4 +24,13 @@ path.texture {
 
 svg.highlight:hover path.texture {
   fill-opacity: 0.5;
+}
+
+@media only screen and (max-width: 768px) {
+  nav.pages-nav-bar {
+    /* display: none; */
+  }
+  nav.pages-nav-bar .contact {
+    display: none;
+  }
 }

@@ -22,7 +22,7 @@ main {
 
 .App {
   min-height: 100vh;
-  min-width: 950px;
+  /* min-width: 950px; */
   background: blue;
   background-size: 20px 20px;
   background-image: linear-gradient(

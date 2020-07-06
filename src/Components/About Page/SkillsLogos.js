@@ -68,8 +68,8 @@ function SkillsLogos(props) {
         return (
           <div className={"logo-box " + elem} key={index}>
             <DrawSVG
-              delay={1500 + index * 300}
-              duration="3000"
+              delay={1000 + index * 300}
+              duration="2000"
               outlineOnly="true"
               easingFunction="ease"
               undraw={props.undraw}

@@ -1,3 +1,8 @@
+.comp path,
+.decomp path {
+  transition: stroke-width 0.3s ease;
+}
+
 .comp path {
   stroke-dasharray: 1;
   stroke-width: 1;
@@ -9,7 +14,7 @@
 
 .decomp path {
   stroke-dasharray: 1;
-  stroke-width: 1;
+  stroke-width: 1 !important;
   stroke: #f5f5f5;
   fill: transparent;
   stroke-opacity: 1;
@@ -19,11 +24,6 @@
 .comp *,
 .decomp * {
   animation: inherit;
-}
-
-.comp path,
-.decomp path {
-  transition: stroke-width 0.3s ease;
 }
 
 @keyframes comp-outline-svg {
@@ -57,7 +57,6 @@
 
 @keyframes decomp-fill-svg {
   from {
-    /* fill: #f5f5f5; */
   }
   to {
     fill: transparent;

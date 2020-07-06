@@ -12,7 +12,7 @@ function Contact(props, ref) {
   const [shouldUndraw, setUndraw] = useState();
 
   useImperativeHandle(ref, () => ({
-    undraw(duration = 2000, delay = 0, easingFunction = "ease") {
+    undraw(duration = 1000, delay = 300, easingFunction = "ease") {
       setUndraw({
         duration: duration,
         delay: delay,
