@@ -76,7 +76,12 @@ function HeaderNav(props) {
         pageRefs[newPage].current.playEndAnimation(1000, 0);
         if (shouldRedrawAll)
           Object.keys(pages)
-            .filter((elem) => elem !== currPage && elem !== newPage)
+            .filter(
+              (elem) =>
+                (typeof currPage === "undefined"
+                  ? elem !== "Home"
+                  : elem !== currPage) && elem !== newPage
+            )
             .forEach((page) =>
               pageRefs[page].current.playEndAnimation(1000, 500)
             );

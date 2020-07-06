@@ -16,7 +16,7 @@ function Heading(props) {
   return (
     <Fragment>
       <section className={rendered ? "name lowstroke" : "name"}>
-        <DrawSVG duration="5000" delay="1000">
+        <DrawSVG duration="2000" delay="1000">
           <HeaderName />
         </DrawSVG>
       </section>

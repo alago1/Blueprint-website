@@ -87,16 +87,27 @@ div.portrait.enter-animation svg.selected-portrait path {
 
 @media only screen and (max-width: 768px) {
   .portrait-container {
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: 100vw;
+    padding: 20px;
+    margin: 0;
+  }
+
+  .portrait-container * {
+    width: calc(100vw - 20px);
+    height: calc(100vw - 20px);
   }
 
   .portrait-description,
   .description-box {
-    width: 100%;
+    width: 100vw;
   }
 
   .portrait-banner {
     flex-direction: column;
+  }
+
+  .description-box {
+    margin: 0;
   }
 }

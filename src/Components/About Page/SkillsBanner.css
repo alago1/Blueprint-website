@@ -14,3 +14,15 @@
 .skills-title path {
   stroke-width: 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .skills-title {
+    margin: 0;
+  }
+
+  .skills-title svg {
+    width: calc(100vw - 40px);
+    height: auto;
+    margin: auto 20px;
+  }
+}

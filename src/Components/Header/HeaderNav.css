@@ -28,9 +28,6 @@ svg.highlight:hover path.texture {
 
 @media only screen and (max-width: 768px) {
   nav.pages-nav-bar {
-    /* display: none; */
-  }
-  nav.pages-nav-bar .contact {
-    display: none;
+    margin: -10px auto 0px auto;
   }
 }
