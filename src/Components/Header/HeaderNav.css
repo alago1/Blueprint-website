@@ -28,6 +28,9 @@ svg.highlight:hover path.texture {
 
 @media only screen and (max-width: 768px) {
   nav.pages-nav-bar {
-    margin: -10px auto 0px auto;
+    justify-content: space-around;
+  }
+  .header-style {
+    margin: 0px;
   }
 }
