@@ -94,7 +94,7 @@ div.portrait.enter-animation svg.selected-portrait path {
   }
 
   .portrait-container * {
-    width: calc(100vw - 20px);
+    /* width: calc(100vw - 20px); */
     height: calc(100vw - 20px);
   }
 
