@@ -91,16 +91,26 @@ div.portrait.enter-animation svg.selected-portrait path {
     height: 100vw;
     padding: 20px;
     margin: 0;
+    max-height: 440px;
   }
 
   .portrait-container * {
-    /* width: calc(100vw - 20px); */
+    width: calc(100vw - 40px);
     height: calc(100vw - 20px);
+    max-height: 400px;
+    max-width: 400px;
+    /* margin: 0px auto; */
+  }
+
+  img.selected-portrait {
+    width: auto;
+    -webkit-clip-path: circle(46%);
+    clip-path: circle(46%);
   }
 
   .portrait-description,
   .description-box {
-    width: 100vw;
+    width: calc(100vw - 20px);
   }
 
   .portrait-banner {
@@ -109,5 +119,25 @@ div.portrait.enter-animation svg.selected-portrait path {
 
   .description-box {
     margin: 0;
+  }
+}
+@media only screen and (max-width: 500px) {
+  img.selected-portrait {
+    -webkit-clip-path: circle(44%);
+    clip-path: circle(45%);
+  }
+}
+
+@media only screen and (max-width: 449px) {
+  img.selected-portrait {
+    -webkit-clip-path: circle(44%);
+    clip-path: circle(44%);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  img.selected-portrait {
+    -webkit-clip-path: circle(43%);
+    clip-path: circle(43%);
   }
 }
