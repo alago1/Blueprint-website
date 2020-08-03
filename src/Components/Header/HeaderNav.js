@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useRef } from "react";
 import { ReactComponent as HeaderHome } from "../../svgs/Header/Header_Home.svg";
 import { ReactComponent as HeaderAbout } from "../../svgs/Header/Header_About.svg";
 import { ReactComponent as HeaderContact } from "../../svgs/Header/Header_Contact.svg";
+import { ReactComponent as HeaderProjects } from "../../svgs/Header/Header_Projects.svg";
 import DrawSVG from "../Animation/DrawSVG";
 import "./HeaderNav.css";
 import { useState } from "react";
@@ -13,6 +14,7 @@ function HeaderNav(props) {
   const pageRefs = {
     Home: useRef(null),
     About: useRef(null),
+    Projects: useRef(null),
     Contact: useRef(null),
   };
 
@@ -31,6 +33,13 @@ function HeaderNav(props) {
         className="header-style highlight clickable about"
       />
     ),
+    Projects: (
+      <HeaderProjects
+        key="Projects"
+        onClick={() => handleChangePage("Projects")}
+        className="header-style highlight clickable projects"
+      />
+    ),
     Contact: (
       <HeaderContact
         key="Contact"
@@ -44,7 +53,6 @@ function HeaderNav(props) {
   useEffect(() => {
     // console.log("currPage: " + currPage);
     if (typeof currPage === "undefined") {
-      // console.log("in");
       Object.keys(pages)
         .filter((page) => page !== "Home")
         .forEach((page) =>
@@ -69,22 +77,31 @@ function HeaderNav(props) {
 
   const handleChangePage = (newPage) => {
     // To circumvent checking if position would change based on width, newPage, etc.
-    const shouldRedrawAll = newPage === "Contact" || currPage === "Contact";
+    let firstTwoPages = Object.keys(pages).slice(0, 2);
+    let hasMultipleRedraws = !(
+      newPage in firstTwoPages && currPage in firstTwoPages
+    );
+    let redrawIndex = Math.max(
+      Object.keys(pages).indexOf(newPage),
+      Object.keys(pages).indexOf(currPage),
+      0
+    );
 
     if (newPage in pages) {
       if (pageRefs[newPage].current) {
         pageRefs[newPage].current.playEndAnimation(1000, 0);
-        if (shouldRedrawAll)
-          Object.keys(pages)
-            .filter(
-              (elem) =>
-                (typeof currPage === "undefined"
-                  ? elem !== "Home"
-                  : elem !== currPage) && elem !== newPage
-            )
-            .forEach((page) =>
-              pageRefs[page].current.playEndAnimation(1000, 500)
-            );
+        Object.keys(pages)
+          .filter(
+            (elem, index) =>
+              (typeof currPage === "undefined"
+                ? elem !== "Home"
+                : elem !== currPage) &&
+              elem !== newPage &&
+              index < redrawIndex
+          )
+          .forEach((page) =>
+            pageRefs[page].current.playEndAnimation(1000, 500)
+          );
       }
       // console.log("Setting new page to " + newPage);
 
@@ -97,7 +114,7 @@ function HeaderNav(props) {
         () => {
           setCurrPage(newPage);
         },
-        shouldRedrawAll ? 1500 : 1000
+        hasMultipleRedraws ? 1500 : 1000
       );
     } else {
       console.log("Could not find page: " + newPage + ". Sent Home instead.");

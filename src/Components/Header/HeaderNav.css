@@ -26,6 +26,10 @@ svg.highlight:hover path.texture {
   fill-opacity: 0.5;
 }
 
+.header-style.projects {
+  height: 37px;
+}
+
 @media only screen and (max-width: 768px) {
   nav.pages-nav-bar {
     justify-content: space-around;

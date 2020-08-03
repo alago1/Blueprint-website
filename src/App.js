@@ -4,6 +4,7 @@ import Heading from "./Components/Header/Heading";
 import Home from "./Components/Home Page/Home";
 import About from "./Components/About Page/About";
 import Contact from "./Components/Contact Page/Contact";
+import Projects from "./Components/Projects Page/Projects";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const pages = {
     Home: <Home ref={currPageRef} />,
     About: <About ref={currPageRef} />,
+    Projects: <Projects ref={currPageRef} />,
     Contact: <Contact ref={currPageRef} />,
   };
 
