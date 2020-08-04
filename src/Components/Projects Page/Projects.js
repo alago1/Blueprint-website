@@ -1,5 +1,6 @@
 import React, { useState, forwardRef, useImperativeHandle } from "react";
 import { ReactComponent as HeaderProjects } from "../../svgs/Header/Header_Projects.svg";
+import Tags from "./Tags/Tags";
 import DrawSVG from "../Animation/DrawSVG";
 import "./Projects.css";
 
@@ -25,7 +26,9 @@ function Projects(props, ref) {
           <HeaderProjects className="page-title" />
         </DrawSVG>
       </div>
-      <div className="projects-page page-content"></div>
+      <div className="projects-page page-content">
+        <Tags />
+      </div>
     </div>
   );
 }

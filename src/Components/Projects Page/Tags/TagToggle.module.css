@@ -1,0 +1,35 @@
+.tagtoggle {
+  border-radius: 20px;
+  background: #d0cde1;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  padding: 5px 10px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.tagtoggle:hover {
+  cursor: pointer;
+}
+
+.tagtoggle.checked {
+  background: #f2f2f2;
+}
+
+.toggleImage {
+  height: 31px;
+  width: auto;
+  margin: 0px 5px;
+}
+
+.tagtoggle .toggleImage {
+  transition: filter 0.5s ease;
+  filter: grayscale(0.9);
+}
+
+.tagtoggle.checked .toggleImage {
+  filter: grayscale(0);
+}
