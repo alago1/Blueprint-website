@@ -11,3 +11,9 @@
 .projects-page .page-header .page-title {
   height: 41px;
 }
+
+.project-box-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

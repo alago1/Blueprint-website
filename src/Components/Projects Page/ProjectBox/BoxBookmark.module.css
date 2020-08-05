@@ -1,0 +1,37 @@
+.project-techs-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: whitesmoke;
+  border: solid 1px whitesmoke;
+  border-radius: 0px 5px 5px 0px;
+  padding: 10px 5px;
+
+  left: 100%;
+  top: 5px;
+
+  transform: translateX(-100%);
+  z-index: 0;
+
+  animation: bookmark-slide 0.5s ease-out 1s forwards;
+}
+
+.project-tech-icon {
+  margin: 5px 0px;
+  height: 31px;
+  width: auto;
+  transition: filter 0.5s ease;
+}
+
+.grayscaled-icon {
+  filter: grayscale(0.9);
+}
+
+@keyframes bookmark-slide {
+  to {
+    transform: translateX(0%);
+  }
+}

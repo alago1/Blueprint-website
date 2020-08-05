@@ -13,6 +13,7 @@ function Tags() {
             initialState={true}
             toggleText={TagsList[elem].tag_text}
             imageSrc={TagsList[elem].image}
+            tagValue={elem}
             style={{ margin: "10px" }}
           />
         );
