@@ -10,6 +10,7 @@ import { useState } from "react";
 function HeaderNav(props) {
   const signalPage = props.signal;
   const [currPage, setCurrPage] = useState();
+  const isCurrent = useRef(true);
 
   const pageRefs = {
     Home: useRef(null),
@@ -75,6 +76,12 @@ function HeaderNav(props) {
     }
   }, [pageRefs, pages, currPage]);
 
+  useEffect(() => {
+    return () => {
+      isCurrent.current = false;
+    };
+  }, [isCurrent]);
+
   const handleChangePage = (newPage) => {
     // To circumvent checking if position would change based on width, newPage, etc.
     let firstTwoPages = Object.keys(pages).slice(0, 2);
@@ -112,7 +119,7 @@ function HeaderNav(props) {
       //be careful with this delay: if its bigger than the animation duration+delay some visual glitches might occur
       setTimeout(
         () => {
-          setCurrPage(newPage);
+          if (isCurrent.current) setCurrPage(newPage);
         },
         hasMultipleRedraws ? 1500 : 1000
       );

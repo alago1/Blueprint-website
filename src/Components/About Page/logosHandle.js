@@ -9,7 +9,7 @@ import { ReactComponent as PythonLogo } from "../../svgs/About Page/Logos/Python
 export const logosHandle = {
   JsHtmlCss: {
     portrait: <JsHtmlCssLogo className="selected-portrait" />,
-    title: "HTML5, CSS3, and Javascript",
+    title: "Javascript, HTML5, and CSS3",
     description: `  I have a strong understanding of the use of semantic HTML and CSS as well as Javascript features including those added in ES6+ (such as Promises, async, await).`,
   },
   React: {

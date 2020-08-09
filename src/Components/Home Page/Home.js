@@ -4,6 +4,7 @@ import React, {
   useState,
   useEffect,
   useCallback,
+  useRef,
 } from "react";
 import { ReactComponent as BannerText1 } from "../../svgs/Home Page/Banner Text 1.svg";
 import { ReactComponent as BannerText2 } from "../../svgs/Home Page/Banner Text 2.svg";
@@ -15,6 +16,7 @@ import "./Home.css";
 function Home(props, ref) {
   const [shouldUndraw, setUndraw] = useState();
   const [animationStage, setAnimationStage] = useState(0);
+  const isCurrent = useRef(true);
 
   const animEventDuration = [
     //stage : ms
@@ -46,7 +48,7 @@ function Home(props, ref) {
       animationStage < animEventDuration.length
     ) {
       setTimeout(() => {
-        if (!shouldUndraw) {
+        if (!shouldUndraw && isCurrent.current) {
           setAnimationStage(animationStage + 1);
         }
       }, animEventDuration[animationStage]);
@@ -54,6 +56,12 @@ function Home(props, ref) {
   }, [animationStage, animEventDuration, shouldUndraw]);
 
   useEffect(() => scheduleNextEvent(), [animationStage, scheduleNextEvent]);
+
+  useEffect(() => {
+    return () => {
+      isCurrent.current = false;
+    };
+  }, []);
 
   // useEffect(() => console.log(animationStage), [animationStage]);
 

@@ -1,5 +1,6 @@
 import React from "react";
-import ReactLogo from "../../../svgs/Projects Page/React Logo.svg";
+import { IoLogoGithub } from "react-icons/io";
+import { FiExternalLink } from "react-icons/fi";
 import module_styles from "./ProjectBox.module.css";
 
 function ProjectBoxContent(props) {
@@ -23,11 +24,10 @@ function ProjectBoxContent(props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src={ReactLogo}
-              alt=""
+            <IoLogoGithub
               title="GitHub Repository"
               className={module_styles["project-link-image"]}
+              fill="black"
             />
           </a>
           {typeof props.content.links.other !== "undefined" && (
@@ -36,11 +36,10 @@ function ProjectBoxContent(props) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src={ReactLogo}
-                alt=""
+              <FiExternalLink
                 title="Website"
                 className={module_styles["project-link-image"]}
+                stroke="black"
               />
             </a>
           )}
