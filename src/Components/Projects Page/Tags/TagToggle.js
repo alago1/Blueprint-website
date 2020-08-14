@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { useSetRecoilState } from "recoil";
 import { projects_selectedTags } from "../atoms";
 import module_styles from "./TagToggle.module.css";
 
-function TagToggle(props) {
+function TagToggle(props, ref) {
   const [isChecked, setIsChecked] = useState(props.initialState === true);
   const toggleText =
     typeof props.toggleText === "string" ? props.toggleText : "";
@@ -39,6 +39,7 @@ function TagToggle(props) {
       }`}
       style={{ ...props.style }}
       onClick={handleClick}
+      ref={ref}
     >
       <img src={props.imageSrc} alt="" className={module_styles.toggleImage} />
       <b>{toggleText}</b>
@@ -46,4 +47,4 @@ function TagToggle(props) {
   );
 }
 
-export default TagToggle;
+export default forwardRef(TagToggle);

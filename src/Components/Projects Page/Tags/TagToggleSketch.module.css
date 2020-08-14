@@ -1,0 +1,8 @@
+.tag-toggle-sketch-container {
+  position: relative;
+  margin: 10px;
+}
+
+.tag-toggle-sketch-outline-container {
+  position: absolute;
+}

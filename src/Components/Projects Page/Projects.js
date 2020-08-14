@@ -28,7 +28,7 @@ function Projects(props, ref) {
         </DrawSVG>
       </div>
       <div className="projects-page page-content">
-        <Tags />
+        <Tags undraw={shouldUndraw} />
         <ProjectsContainer />
       </div>
     </div>

@@ -69,6 +69,13 @@ main {
   }
 }
 
+@keyframes delay-appear {
+  0%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes reset-stroke-width {
   to {
     stroke-width: 0;
