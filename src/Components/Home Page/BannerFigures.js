@@ -9,11 +9,10 @@ function BannerFigures(props) {
   return (
     <div className="figures">
       <DrawSVG
-        duration="2000"
-        delay="3000"
-        outlineOnly="true"
-        easingFunction="ease"
+        duration={2000}
+        delay={3000}
         undraw={props.undraw}
+        className="transparent"
       >
         <LightBulb
           className="figure-style light-bulb off"
@@ -32,11 +31,10 @@ function BannerFigures(props) {
         }}
       />
       <DrawSVG
-        duration="2000"
-        delay="9600"
-        outlineOnly="true"
-        easingFunction="ease"
+        duration={2000}
+        delay={9600}
         undraw={props.undraw}
+        className="transparent"
       >
         <BallerinaSketch
           className="figure-style ballerina-sketch"

@@ -34,7 +34,6 @@ function Home(props, ref) {
       setUndraw({
         duration: duration,
         delay: delay,
-        outlineOnly: false,
         easingFunction: easingFunction,
       });
 
@@ -69,9 +68,11 @@ function Home(props, ref) {
     <div className="home-page">
       <div className="banner-text">
         <DrawSVG
-          duration="6000"
-          delay="5500"
+          duration={6000}
+          delay={5500}
+          easingFunction="cubic-bezier(1, 0.16, 1, 0.3)"
           undraw={shouldUndraw}
+          startTransparent
           style={{
             width: "100%",
           }}
@@ -84,9 +85,11 @@ function Home(props, ref) {
           />
         </DrawSVG>
         <DrawSVG
-          duration="6000"
-          delay="12500"
+          duration={6000}
+          delay={12500}
+          easingFunction="cubic-bezier(1, 0.16, 1, 0.3)"
           undraw={shouldUndraw}
+          startTransparent
           style={{
             width: "93%",
           }}
@@ -99,9 +102,11 @@ function Home(props, ref) {
           />
         </DrawSVG>
         <DrawSVG
-          duration="6000"
-          delay="15000"
+          duration={6000}
+          delay={15000}
+          easingFunction="cubic-bezier(1, 0.16, 1, 0.3)"
           undraw={shouldUndraw}
+          startTransparent
           style={{
             width: "79%",
           }}

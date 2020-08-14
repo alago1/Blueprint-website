@@ -24,7 +24,7 @@ function PortraitBanner(props) {
 
       //undraw the displayedPortrait
       portraitRef.current
-        .playEndAnimation(1000, 0, true, "ease")
+        .playEndAnimation(1000, 0, "ease", true)
         .then(() => setDisplayedPortrait(selectedPortrait))
         .then(() => elem.classList.remove("exit-animation"));
     } else {
@@ -42,7 +42,7 @@ function PortraitBanner(props) {
         //restarts the appear animation
         restartAnimation(portrait_elem, "enter-animation");
         restartAnimation(descript_elem, "enter-animation");
-      }).then(portraitRef.current.playStartAnimation(3000, 0, true, "ease"));
+      }).then(portraitRef.current.playStartAnimation(3000, 0, "ease", true));
     }
   }, [selectedPortrait, displayedPortrait]);
 
@@ -76,7 +76,11 @@ function PortraitBanner(props) {
   return (
     <div className="portrait-banner">
       <div className="portrait-container">
-        <DrawSVG undraw={props.undraw} ref={portraitRef}>
+        <DrawSVG
+          undraw={props.undraw}
+          ref={portraitRef}
+          className="transparent"
+        >
           {getPortrait(displayedPortrait).portrait}
         </DrawSVG>
         <div

@@ -54,6 +54,10 @@ main {
   stroke-width: 1;
 }
 
+.transparent svg * {
+  fill: transparent;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

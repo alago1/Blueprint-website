@@ -16,7 +16,6 @@ function Contact(props, ref) {
       setUndraw({
         duration: duration,
         delay: delay,
-        outlineOnly: false,
         easingFunction: easingFunction,
       });
       return new Promise((resolve) => setTimeout(resolve, duration + delay));
@@ -45,7 +44,13 @@ function Contact(props, ref) {
   return (
     <div className="contact-page">
       <div className="page-header">
-        <DrawSVG delay="500" duration="3000" undraw={shouldUndraw}>
+        <DrawSVG
+          delay={500}
+          duration={3000}
+          easingFunction="cubic-bezier(1, 0.16, 1, 0.3)"
+          undraw={shouldUndraw}
+          startTransparent
+        >
           <HeaderContact className="page-title" />
         </DrawSVG>
       </div>
@@ -55,11 +60,10 @@ function Contact(props, ref) {
             return (
               <div className="icon-box" key={elem + " Contact Icon"}>
                 <DrawSVG
-                  duration="2000"
+                  duration={2000}
                   delay={1000 + index * 300}
-                  outlineOnly="true"
-                  easingFunction="ease"
                   undraw={shouldUndraw}
+                  className="transparent"
                 >
                   {iconsHandle[elem].component}
                 </DrawSVG>

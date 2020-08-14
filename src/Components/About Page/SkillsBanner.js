@@ -9,10 +9,11 @@ function SkillsBanner(props) {
     <div className="skills-banner">
       <div className="skills-title">
         <DrawSVG
-          delay="1000"
-          duration="3000"
+          delay={1000}
+          duration={3000}
           easingFunction="ease-in"
           undraw={props.undraw}
+          startTransparent
         >
           <SkillsTitle />
         </DrawSVG>

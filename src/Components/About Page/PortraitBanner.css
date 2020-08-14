@@ -34,7 +34,7 @@
 div.enter-animation {
   height: 100%;
   opacity: 0;
-  animation: fade-in 1s ease 2.5s forwards;
+  animation: fade-in 1s ease 1.5s forwards;
 }
 
 img.selected-portrait {

@@ -13,7 +13,6 @@ function About(props, ref) {
       setUndraw({
         duration: duration,
         delay: delay,
-        outlineOnly: false,
         easingFunction: easingFunction,
       });
       return new Promise((resolve) => setTimeout(resolve, duration + delay));
@@ -23,7 +22,13 @@ function About(props, ref) {
   return (
     <div className="about-page">
       <div className="page-header">
-        <DrawSVG delay="500" duration="2000" undraw={shouldUndraw}>
+        <DrawSVG
+          delay={500}
+          duration={2000}
+          easingFunction="cubic-bezier(1, 0.16, 1, 0.3)"
+          undraw={shouldUndraw}
+          startTransparent
+        >
           <HeaderAbout className="page-title" />
         </DrawSVG>
       </div>

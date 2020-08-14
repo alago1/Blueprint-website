@@ -40,13 +40,7 @@ function TagToggleSketch(props) {
   return (
     <div className={module_styles["tag-toggle-sketch-container"]}>
       <div className={module_styles["tag-toggle-sketch-outline-container"]}>
-        <DrawSVG
-          duration="1000"
-          delay="0"
-          easingFunction="ease"
-          outlineOnly="true"
-          undraw={props.undraw}
-        >
+        <DrawSVG duration={1000} undraw={props.undraw} disableFilling>
           {computedSVG}
         </DrawSVG>
       </div>
