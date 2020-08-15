@@ -6,7 +6,7 @@ import { ReactComponent as ReactLogo } from "../../svgs/About Page/Logos/React L
 import { ReactComponent as GitLinuxLogo } from "../../svgs/About Page/Logos/Linux + Git Logo.svg";
 import { ReactComponent as PythonLogo } from "../../svgs/About Page/Logos/Python Logo.svg";
 
-export const logosHandle = {
+export const LogosList = {
   JsHtmlCss: {
     portrait: <JsHtmlCssLogo className="selected-portrait" />,
     title: "Javascript, HTML5, and CSS3",

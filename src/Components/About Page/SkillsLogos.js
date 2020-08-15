@@ -21,9 +21,6 @@ function SkillsLogos(props) {
     }
   };
 
-  // Easy way to modify order without copy pasting inside logosHandle
-  const order = ["JsHtmlCss", "React", "SelfPortrait", "GitLinux", "Python"];
-
   const logoClassName = (logoName) =>
     selectedLogo === logoName ? "logo selected" : "logo";
 
@@ -40,6 +37,12 @@ function SkillsLogos(props) {
         onClick={() => handleChangeLogo("React")}
       />
     ),
+    SelfPortrait: (
+      <SelfPortrait
+        className={logoClassName("SelfPortrait")}
+        onClick={() => handleChangeLogo("SelfPortrait")}
+      />
+    ),
     GitLinux: (
       <GitLinuxLogo
         className={logoClassName("GitLinux")}
@@ -54,17 +57,11 @@ function SkillsLogos(props) {
         onClick={() => handleChangeLogo("Python")}
       />
     ),
-    SelfPortrait: (
-      <SelfPortrait
-        className={logoClassName("SelfPortrait")}
-        onClick={() => handleChangeLogo("SelfPortrait")}
-      />
-    ),
   };
 
   return (
     <div className="skills-logos">
-      {order.map((elem, index) => {
+      {Object.keys(skillsLogosHandle).map((elem, index) => {
         return (
           <div className={"logo-box " + elem} key={index}>
             <DrawSVG

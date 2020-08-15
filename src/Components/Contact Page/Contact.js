@@ -1,10 +1,6 @@
 import React, { useState, forwardRef, useImperativeHandle } from "react";
 import { ReactComponent as HeaderContact } from "../../svgs/Header/Header_Contact.svg";
-import { ReactComponent as EmailIcon } from "../../svgs/Contact Page/Email Box.svg";
-//these need to be links later
-import { ReactComponent as GitHubIcon } from "../../svgs/Contact Page/GitHub Box.svg";
-import { ReactComponent as LinkedInIcon } from "../../svgs/Contact Page/LinkedIn Box.svg";
-import { ReactComponent as TwitterIcon } from "../../svgs/Contact Page/Twitter Box.svg";
+import { IconsList } from "./IconsList";
 import DrawSVG from "../Animation/DrawSVG";
 import "./Contact.css";
 
@@ -22,25 +18,6 @@ function Contact(props, ref) {
     },
   }));
 
-  const iconsHandle = {
-    Email: {
-      component: <EmailIcon className="icon" />,
-      href: "mailto:allanlago1@gmail.com",
-    },
-    GitHub: {
-      component: <GitHubIcon className="icon" />,
-      href: "https://github.com/alago1",
-    },
-    LinkedIn: {
-      component: <LinkedInIcon className="icon" />,
-      href: "https://www.linkedin.com/in/allan-lago-a6b5131a8/",
-    },
-    Twitter: {
-      component: <TwitterIcon className="icon" />,
-      href: "https://twitter.com/lago_allan",
-    },
-  };
-
   return (
     <div className="contact-page">
       <div className="page-header">
@@ -56,25 +33,32 @@ function Contact(props, ref) {
       </div>
       <div className="contact-page page-content">
         <div className="icon-bar">
-          {Object.keys(iconsHandle).map((elem, index) => {
+          {Object.keys(IconsList).map((elem, index) => {
             return (
               <div className="icon-box" key={elem + " Contact Icon"}>
                 <DrawSVG
-                  duration={2000}
-                  delay={1000 + index * 300}
+                  duration={1500}
+                  delay={500 + index * 300}
                   undraw={shouldUndraw}
                   className="transparent"
                 >
-                  {iconsHandle[elem].component}
+                  {IconsList[elem].component}
                 </DrawSVG>
-                <div className="contact-icon enter-animation">
+                <div
+                  className="contact-icon"
+                  style={{
+                    animation:
+                      typeof shouldUndraw === "undefined"
+                        ? "fade-in 1s ease 1.5s forwards, delay-appear 1.5s ease"
+                        : "fade-out 0.5s ease forwards",
+                  }}
+                >
                   <a
-                    href={iconsHandle[elem].href}
+                    href={IconsList[elem].href}
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-                    {typeof shouldUndraw === "undefined" &&
-                      iconsHandle[elem].component}
+                    {IconsList[elem].component}
                   </a>
                 </div>
               </div>

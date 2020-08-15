@@ -30,8 +30,6 @@
 
 .ballerina-filled {
   transform: translateX(-1%);
-  opacity: 0;
-  animation: ballerina-appear 1s ease-in-out 16s forwards;
   z-index: 1;
 }
 
@@ -52,7 +50,6 @@
 
 .on {
   z-index: 1;
-  animation: light-bulb-disappears 0.5s ease 9s forwards;
 }
 
 .off .sparks path {
@@ -77,12 +74,6 @@
   }
 }
 
-@keyframes light-bulb-disappears {
-  to {
-    opacity: 0;
-  }
-}
-
 /* Ballerina Element Properties */
 
 .ballerina-sketch path {
@@ -91,18 +82,6 @@
 
 .ballerina-filled path {
   stroke-width: 0;
-}
-
-@keyframes ballerina-appear {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes disable-object {
-  to {
-    display: none;
-  }
 }
 
 @media only screen and (max-width: 768px) {

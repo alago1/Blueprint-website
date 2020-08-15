@@ -47,11 +47,7 @@
   opacity: 1;
 }
 
-.contact-icon.enter-animation {
-  animation: fade-in 1s ease 3s forwards;
-}
-
-.contact-icon.enter-animation .icon {
+.contact-icon .icon {
   position: absolute;
   transform: translateY(calc(-100% - 4px));
 }

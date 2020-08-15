@@ -24,10 +24,11 @@ function BannerFigures(props) {
       <LightBulb
         className="figure-style light-bulb on"
         style={{
-          visibility:
+          visibility: props.animationStage === 2 ? "visible" : "hidden",
+          animation:
             props.animationStage === 2 && typeof props.undraw === "undefined"
-              ? "visible"
-              : "hidden",
+              ? "fade-out 0.5s ease 9s forwards"
+              : "fade-out 0.5s ease forwards",
         }}
       />
       <DrawSVG
@@ -46,10 +47,11 @@ function BannerFigures(props) {
       <BallerinaFilled
         className="figure-style ballerina-filled"
         style={{
-          visibility:
+          visibility: props.animationStage > 5 ? "visible" : "hidden",
+          animation:
             props.animationStage > 5 && typeof props.undraw === "undefined"
-              ? "visible"
-              : "hidden",
+              ? "fade-in 1s ease-in-out 1s forwards, delay-appear 1s ease"
+              : "fade-out 0.5s ease forwards",
         }}
       />
     </div>
