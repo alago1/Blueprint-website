@@ -15,7 +15,6 @@ function Tags(props) {
             imageSrc={TagsList[elem].image}
             tagValue={elem}
             undraw={props.undraw}
-            // style={{ margin: "10px", animation: "fade-in 1s 1s ease" }}
           />
         );
       })}

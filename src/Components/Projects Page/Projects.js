@@ -34,7 +34,7 @@ function Projects(props, ref) {
       </div>
       <div className="projects-page page-content">
         <Tags undraw={shouldUndraw} />
-        <ProjectsContainer />
+        <ProjectsContainer undraw={shouldUndraw} />
       </div>
     </div>
   );

@@ -6,8 +6,8 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-// import module_styles from "./DrawSVG.module.css";
-import "./DrawSVG.css";
+import module_styles from "./DrawSVG.module.css";
+// import "./DrawSVG.css";
 
 function DrawSVG(props, ref) {
   //animation state
@@ -72,9 +72,15 @@ function DrawSVG(props, ref) {
   }));
 
   const computeAnimation = useCallback(() => {
-    const outlineAnim = `${anim.type}-outline-svg ${anim.duration}ms ${anim.easingFunction} ${anim.delay}ms forwards`;
-    const fillingAnim = `${anim.type}-fill-svg ${anim.duration}ms ease ${anim.delay}ms forwards`;
-    const fillDelayAnim = `delay-fill ${anim.delay}ms`;
+    // animation names with module hashes
+    const outlineAnimName = module_styles[`${anim.type}-outline-svg`];
+    const fillingAnimName = module_styles[`${anim.type}-fill-svg`];
+    const fillDelayAnimName = module_styles["delay-fill"];
+
+    // css animation description
+    const outlineAnim = `${outlineAnimName} ${anim.duration}ms ${anim.easingFunction} ${anim.delay}ms forwards`;
+    const fillingAnim = `${fillingAnimName} ${anim.duration}ms ease ${anim.delay}ms forwards`;
+    const fillDelayAnim = `${fillDelayAnimName} ${anim.delay}ms`;
 
     const fullAnimation =
       outlineAnim +
@@ -92,8 +98,8 @@ function DrawSVG(props, ref) {
 
   return (
     <span
-      // className={module_styles[anim.type]}
-      className={`${anim.type} ${props.className ?? ""}`}
+      className={`${module_styles[anim.type]} ${props.className ?? ""}`}
+      // className={`${anim.type} ${props.className ?? ""}`}
       style={{
         animation: animationDescription,
         ...props.style,

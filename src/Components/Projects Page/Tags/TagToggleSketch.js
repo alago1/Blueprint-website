@@ -1,21 +1,11 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useMemo } from "react";
+import { useDimensions } from "../hooks";
 import TagToggle from "./TagToggle";
 import DrawSVG from "../../Animation/DrawSVG";
 import module_styles from "./TagToggleSketch.module.css";
 
 function TagToggleSketch(props) {
-  const [dimensions, setDimensions] = useState([0, 0]);
-  const toggleRef = useRef();
-
-  useEffect(() => {
-    if (toggleRef.current) {
-      setDimensions([
-        toggleRef.current?.offsetWidth,
-        toggleRef.current?.offsetHeight,
-      ]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toggleRef.current?.offsetWidth, toggleRef.current?.offsetHeight]);
+  const [dimensions, toggleRef] = useDimensions([0, 0]);
 
   const computedSVG = useMemo(() => {
     return (
@@ -40,7 +30,12 @@ function TagToggleSketch(props) {
   return (
     <div className={module_styles["tag-toggle-sketch-container"]}>
       <div className={module_styles["tag-toggle-sketch-outline-container"]}>
-        <DrawSVG duration={1000} undraw={props.undraw} disableFilling>
+        <DrawSVG
+          duration={1000}
+          delay={500}
+          undraw={props.undraw}
+          disableFilling
+        >
           {computedSVG}
         </DrawSVG>
       </div>
@@ -52,10 +47,9 @@ function TagToggleSketch(props) {
         style={{
           animation:
             typeof props.undraw === "undefined"
-              ? "fade-in 0.5s 0.5s ease-out forwards, delay-appear 0.5s 0s ease"
+              ? "fade-in 0.5s ease-out 1s forwards, delay-appear 1s 0s ease"
               : "fade-out 0.5s ease forwards",
         }}
-        // style={{ opacity: 0 }}
         ref={toggleRef}
       />
     </div>

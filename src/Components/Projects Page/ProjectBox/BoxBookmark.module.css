@@ -16,7 +16,7 @@
   transform: translateX(-100%);
   z-index: 0;
 
-  animation: bookmark-slide 0.5s ease-out 1s forwards;
+  clip-path: inset(0 0 0 100%);
 }
 
 .project-tech-icon {
@@ -31,7 +31,23 @@
 }
 
 @keyframes bookmark-slide {
+  from {
+    transform: translateX(-100%);
+    clip-path: inset(0 0 0 100%);
+  }
   to {
     transform: translateX(0%);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes bookmark-disappear {
+  from {
+    transform: translateX(0%);
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    transform: translateX(-100%);
+    clip-path: inset(0 0 0 100%);
   }
 }

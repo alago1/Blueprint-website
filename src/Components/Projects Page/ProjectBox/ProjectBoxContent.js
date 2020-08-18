@@ -1,11 +1,17 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { IoLogoGithub } from "react-icons/io";
 import { FiExternalLink } from "react-icons/fi";
 import module_styles from "./ProjectBox.module.css";
 
-function ProjectBoxContent(props) {
+function ProjectBoxContent(props, ref) {
   return (
-    <div className={module_styles["project-box-content-container"]}>
+    <div
+      className={module_styles["project-box-content-container"]}
+      style={{
+        ...props.style,
+      }}
+      ref={ref}
+    >
       <div className={module_styles["project-image-container"]}>
         <img
           src={props.content.image}
@@ -49,4 +55,4 @@ function ProjectBoxContent(props) {
   );
 }
 
-export default ProjectBoxContent;
+export default forwardRef(ProjectBoxContent);

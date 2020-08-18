@@ -8,7 +8,15 @@ function BoxBookmark(props) {
   const selectedTags = useRecoilValue(projects_selectedTags);
 
   return (
-    <div className={module_styles["project-techs-container"]}>
+    <div
+      className={module_styles["project-techs-container"]}
+      style={{
+        animation:
+          typeof props.undraw === "undefined"
+            ? `${module_styles["bookmark-slide"]} 0.5s ease-out 1s forwards`
+            : `${module_styles["bookmark-disappear"]} 0.5s ease-out forwards`,
+      }}
+    >
       {props.tags.map((elem) => {
         return (
           <img
