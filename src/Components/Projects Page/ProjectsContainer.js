@@ -1,12 +1,16 @@
 import React, { useMemo } from "react";
 import { useRecoilValue } from "recoil";
+import { useMediaQuery } from "react-responsive";
 import { projects_selectedTags } from "./atoms";
 import ProjectBox from "./ProjectBox/ProjectBox";
 import { ProjectsList } from "./ProjectsList";
 
 function ProjectsContainer(props) {
   const selectedTags = useRecoilValue(projects_selectedTags);
-  const elems_per_row = 2;
+  const isTabletOrMobile = useMediaQuery({
+    query: "(max-width: 1224px)",
+  });
+  const elems_per_row = isTabletOrMobile ? 1 : 2;
 
   //change it later to apply filters
   const displayedProjects = useMemo(
@@ -42,9 +46,11 @@ function ProjectsContainer(props) {
                       content={displayedProjects[index]}
                       key={displayedProjects[index].title}
                       style={{
-                        width: "500px",
+                        width: isTabletOrMobile
+                          ? "calc(100% - 100px)"
+                          : "500px",
                         height: "250px",
-                        margin: "50px",
+                        margin: isTabletOrMobile ? "10px 50px" : "50px",
                       }}
                     />
                   )

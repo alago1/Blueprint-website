@@ -5,7 +5,12 @@ import module_styles from "./ProjectBox.module.css";
 
 function ProjectBox(props) {
   return (
-    <div className={module_styles["project-box"]} style={{ ...props.style }}>
+    <div
+      className={`${module_styles["project-box"]} ${
+        typeof props.className !== "undefined" ? props.className : ""
+      }`}
+      style={{ ...props.style }}
+    >
       <BoxBookmark tags={props.content.tags} undraw={props.undraw} />
       <ProjectBoxSketch content={props.content} undraw={props.undraw} />
     </div>

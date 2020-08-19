@@ -82,4 +82,4 @@ function ProjectBoxSketch(props) {
   );
 }
 
-export default ProjectBoxSketch;
+export default React.memo(ProjectBoxSketch);

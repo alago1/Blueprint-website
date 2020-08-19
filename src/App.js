@@ -20,7 +20,7 @@ function App() {
   const handleChangePage = (pageName) => {
     if (pageName in pages) {
       currPageRef.current.undraw();
-      setTimeout(() => setCurrPage(pageName), 1500);
+      setTimeout(() => setCurrPage(pageName), 1550);
     } else {
       console.log("Unknown Page Request.");
     }

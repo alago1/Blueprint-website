@@ -149,6 +149,7 @@ function HeaderNav(props) {
               key={`${elem}-${index}`}
               ref={pageRefs[elem]}
               easingFunction="cubic-bezier(1, 0.16, 1, 0.3)"
+              style={{ margin: "5px 10px" }}
             >
               {pages[elem]}
             </DrawSVG>

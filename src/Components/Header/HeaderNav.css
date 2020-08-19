@@ -1,10 +1,10 @@
 nav.pages-nav-bar {
   display: flex;
   flex-direction: row;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 10em;
-  padding-top: 10px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  justify-content: space-between;
+  width: 500px;
 }
 
 .clickable {
@@ -32,7 +32,9 @@ svg.highlight:hover path.texture {
 
 @media only screen and (max-width: 768px) {
   nav.pages-nav-bar {
+    margin: auto;
     justify-content: space-around;
+    width: 100%;
   }
   .header-style {
     margin: 0px;

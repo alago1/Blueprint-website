@@ -1,0 +1,35 @@
+<svg
+    width="500"
+    height="250"
+    viewBox="0 0 500 250"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    >
+    <path
+        d="M0 0 h500 v250 h-500 v-250"
+        stroke="white"
+        pathLength="1"
+        fill="transparent"
+    />
+
+    <path
+        d="M15 15 h220 v220 h-220 v-220"
+        stroke="white"
+        pathLength="1"
+        fill="transparent"
+    />
+
+    <path
+        d="M250 15 h240 v50 h-240 v-50"
+        stroke="white"
+        pathLength="1"
+        fill="transparent"
+    />
+
+    <path
+        d="M250 80 h240 v155 h-240 v-155"
+        stroke="white"
+        pathLength="1"
+        fill="transparent"
+    />
+</svg>
