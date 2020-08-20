@@ -60,7 +60,7 @@ function ProjectBoxSketch(props) {
     <div className={module_styles["project-box-sketch-container"]}>
       <div className={module_styles["project-box-sketch-outline-container"]}>
         <DrawSVG
-          duration={1000}
+          duration={800}
           delay={500}
           undraw={props.undraw}
           disableFilling
