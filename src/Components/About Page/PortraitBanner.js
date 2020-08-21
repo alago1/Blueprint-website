@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useRecoilValue } from "recoil";
-import { about_SelectedPortrait } from "./atoms";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { useObserver } from "mobx-react";
+import { StoreContext } from "../../Store";
 import PortraitPhoto from "../../imgs/PortraitPhoto.png";
 import { LogosList } from "./LogosList";
 
@@ -8,19 +8,21 @@ import DrawSVG from "../Animation/DrawSVG.js";
 import "./PortraitBanner.css";
 
 function PortraitBanner(props) {
-  const selectedPortrait = useRecoilValue(about_SelectedPortrait);
-  const [displayedPortrait, setDisplayedPortrait] = useState(selectedPortrait);
+  const store = useContext(StoreContext);
+  const [displayedPortrait, setDisplayedPortrait] = useState(
+    store.selectedPortrait
+  );
   const portraitRef = useRef();
 
   useEffect(() => {
-    if (displayedPortrait !== selectedPortrait) {
+    if (displayedPortrait !== store.selectedPortrait) {
       portraitRef.current
         .playEndAnimation(1000, 0, "ease", true)
-        .then(() => setDisplayedPortrait(selectedPortrait));
+        .then(() => setDisplayedPortrait(store.selectedPortrait));
     } else {
       portraitRef.current.playStartAnimation(3000, 0, "ease", true);
     }
-  }, [displayedPortrait, selectedPortrait]);
+  }, [displayedPortrait, store.selectedPortrait]);
 
   const getPortrait = (name) => {
     if (name in LogosList) {
@@ -31,7 +33,7 @@ function PortraitBanner(props) {
     return LogosList.SelfPortrait;
   };
 
-  return (
+  return useObserver(() => (
     <div className="portrait-banner">
       <div className="portrait-container">
         <DrawSVG
@@ -46,12 +48,12 @@ function PortraitBanner(props) {
           style={{
             animation:
               typeof props.undraw === "undefined" &&
-              selectedPortrait === displayedPortrait
+              store.selectedPortrait === displayedPortrait
                 ? "fade-in 1s ease 2s forwards, delay-appear 2s ease"
                 : "fade-out 0.5s ease forwards",
           }}
         >
-          {selectedPortrait === "SelfPortrait" ? (
+          {store.selectedPortrait === "SelfPortrait" ? (
             <img
               src={PortraitPhoto}
               alt=""
@@ -68,7 +70,7 @@ function PortraitBanner(props) {
         style={{
           animation:
             typeof props.undraw === "undefined" &&
-            selectedPortrait === displayedPortrait
+            store.selectedPortrait === displayedPortrait
               ? "fade-in 0.5s ease forwards"
               : "fade-out 0.5s ease forwards",
         }}
@@ -83,7 +85,7 @@ function PortraitBanner(props) {
         </div>
       </div>
     </div>
-  );
+  ));
 }
 
 export default PortraitBanner;

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { RecoilRoot } from "recoil";
+import { StoreProvider } from "./Store";
 import Heading from "./Components/Header/Heading";
 import Home from "./Components/Home Page/Home";
 import About from "./Components/About Page/About";
@@ -27,14 +27,14 @@ function App() {
   };
 
   return (
-    <RecoilRoot>
+    <StoreProvider>
       <div className="App">
         <header>
           <Heading signal={(newPage) => handleChangePage(newPage)} />
         </header>
         <main>{pages[currPage]}</main>
       </div>
-    </RecoilRoot>
+    </StoreProvider>
   );
 }
 

@@ -43,7 +43,7 @@ function TagToggleSketch(props) {
         initialState={props.initialState}
         toggleText={props.toggleText}
         imageSrc={props.imageSrc}
-        tagValue={props.tagValue}
+        callback={props.callback}
         style={{
           animation:
             typeof props.undraw === "undefined"

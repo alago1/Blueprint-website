@@ -19,7 +19,7 @@ export const LogosList = {
       
   Relevant and Related:
     - Hooks API
-    - Recoil js (Learning)`,
+    - MobX (Learning)`,
   },
   GitLinux: {
     portrait: <GitLinuxLogo className="selected-portrait" />,

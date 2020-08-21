@@ -1,13 +1,13 @@
-import React from "react";
-import { useRecoilValue } from "recoil";
-import { projects_selectedTags } from "../atoms";
+import React, { useContext } from "react";
+import { useObserver } from "mobx-react";
+import { StoreContext } from "../../../Store";
 import { TagsList } from "../Tags/TagsList";
 import module_styles from "./BoxBookmark.module.css";
 
 function BoxBookmark(props) {
-  const selectedTags = useRecoilValue(projects_selectedTags);
+  const store = useContext(StoreContext);
 
-  return (
+  return useObserver(() => (
     <div
       className={module_styles["project-techs-container"]}
       style={{
@@ -25,13 +25,15 @@ function BoxBookmark(props) {
             alt=""
             title={TagsList[elem].tag_text}
             className={`${module_styles["project-tech-icon"]} ${
-              !selectedTags.has(elem) ? module_styles["grayscaled-icon"] : ""
+              !store.selectedTags.has(elem)
+                ? module_styles["grayscaled-icon"]
+                : ""
             }`}
           />
         );
       })}
     </div>
-  );
+  ));
 }
 
 export default BoxBookmark;

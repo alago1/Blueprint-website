@@ -16,10 +16,14 @@
   position: relative;
 }
 
-.logo-icon.enter-animation .logo {
+.logo-outline {
+  position: relative;
+}
+
+.logo-icon {
   /* only making the filled svgs position absolute makes it so that we always have a reference for height in the flow */
   position: absolute;
-  transform: translateY(-104%);
+  top: 0;
 }
 
 .logo {
@@ -28,18 +32,18 @@
   transition: transform 0.5s ease;
 }
 
-.logo-icon.enter-animation .selected {
-  transform: translateY(-104%) scale(1.3) !important;
+.logo-icon .selected .logo {
+  transform: scale(1.3) !important;
 }
 
-.selected {
+.selected .logo {
   transform: scale(1.3) !important;
   cursor: default !important;
   z-index: 2;
 }
 
-.logo-icon.enter-animation .logo:hover {
-  transform: translateY(-104%) scale(1.1);
+.logo-icon .logo:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -52,11 +56,11 @@
   stroke-width: 2;
 }
 
-.logo-icon.enter-animation > svg {
+.logo-icon > svg {
   opacity: 0;
   animation: fade-in 1s ease 3s forwards;
 }
 
-.logo-icon.enter-animation > svg path {
+.logo-icon > svg path {
   stroke-width: 1;
 }

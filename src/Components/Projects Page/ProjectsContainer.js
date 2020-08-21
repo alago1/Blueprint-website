@@ -1,34 +1,22 @@
-import React, { useMemo } from "react";
-import { useRecoilValue } from "recoil";
+import React, { useContext } from "react";
+import { useObserver } from "mobx-react";
+import { StoreContext } from "../../Store";
 import { useMediaQuery } from "react-responsive";
-import { projects_selectedTags } from "./atoms";
 import ProjectBox from "./ProjectBox/ProjectBox";
-import { ProjectsList } from "./ProjectsList";
 
 function ProjectsContainer(props) {
-  const selectedTags = useRecoilValue(projects_selectedTags);
+  const store = useContext(StoreContext);
   const isTabletOrMobile = useMediaQuery({
     query: "(max-width: 1224px)",
   });
   const elems_per_row = isTabletOrMobile ? 1 : 2;
 
-  //change it later to apply filters
-  const displayedProjects = useMemo(
-    () =>
-      ProjectsList.filter((elem) =>
-        elem.tags.reduce((acc, curr) => {
-          return acc || selectedTags.has(curr);
-        }, false)
-      ),
-    [selectedTags]
-  );
-
-  return (
+  return useObserver(() => (
     <div className="project-boxes-container">
-      {displayedProjects.length !== 0 &&
+      {store.displayedProjects.length !== 0 &&
         [
           ...Array(
-            Math.floor((displayedProjects.length + 1) / elems_per_row)
+            Math.floor((store.displayedProjects.length + 1) / elems_per_row)
           ).keys(),
         ].map((row_index) => {
           return (
@@ -40,11 +28,11 @@ function ProjectsContainer(props) {
                 let index = elems_per_row * row_index + col_index;
 
                 return (
-                  index < displayedProjects.length && (
+                  index < store.displayedProjects.length && (
                     <ProjectBox
                       undraw={props.undraw}
-                      content={displayedProjects[index]}
-                      key={displayedProjects[index].title}
+                      content={store.displayedProjects[index]}
+                      key={store.displayedProjects[index].title}
                       style={{
                         width: isTabletOrMobile
                           ? "calc(100% - 100px)"
@@ -60,7 +48,7 @@ function ProjectsContainer(props) {
           );
         })}
     </div>
-  );
+  ));
 }
 
 export default ProjectsContainer;
