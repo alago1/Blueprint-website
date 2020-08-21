@@ -51,4 +51,4 @@ function ProjectsContainer(props) {
   ));
 }
 
-export default ProjectsContainer;
+export default React.memo(ProjectsContainer);
