@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import React, { useMemo, Suspense } from "react";
 import { useDimensions } from "../hooks";
-import ProjectBoxContent from "./ProjectBoxContent";
 import DrawSVG from "../../Animation/DrawSVG";
 import module_styles from "./ProjectBoxSketch.module.css";
+
+const ProjectBoxContent = React.lazy(() => import("./ProjectBoxContent"));
 
 function ProjectBoxSketch(props) {
   const [dimensions, projectBoxRef] = useDimensions([500, 250]);
@@ -68,16 +69,18 @@ function ProjectBoxSketch(props) {
           {computedSVG}
         </DrawSVG>
       </div>
-      <ProjectBoxContent
-        content={props.content}
-        style={{
-          animation:
-            typeof props.undraw === "undefined"
-              ? "fade-in 0.5s ease 1s forwards, delay-appear 1s"
-              : "fade-out 1s ease forwards",
-        }}
-        ref={projectBoxRef}
-      />
+      <Suspense fallback={<></>}>
+        <ProjectBoxContent
+          content={props.content}
+          style={{
+            animation:
+              typeof props.undraw === "undefined"
+                ? "fade-in 0.5s ease 1s forwards, delay-appear 1s"
+                : "fade-out 1s ease forwards",
+          }}
+          ref={projectBoxRef}
+        />
+      </Suspense>
     </div>
   );
 }
