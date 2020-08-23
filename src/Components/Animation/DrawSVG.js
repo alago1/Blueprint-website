@@ -99,7 +99,6 @@ function DrawSVG(props, ref) {
   return (
     <span
       className={`${module_styles[anim.type]} ${props.className ?? ""}`}
-      // className={`${anim.type} ${props.className ?? ""}`}
       style={{
         animation: animationDescription,
         ...props.style,

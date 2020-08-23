@@ -8,7 +8,7 @@ import Projects from "./Components/Projects Page/Projects";
 import "./App.css";
 
 function App() {
-  const [currPage, setCurrPage] = useState("Home");
+  const [currPage, setCurrPage] = useState("Projects");
   const currPageRef = useRef();
   const pages = {
     Home: <Home ref={currPageRef} />,

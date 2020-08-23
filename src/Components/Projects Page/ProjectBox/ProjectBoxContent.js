@@ -18,12 +18,6 @@ function ProjectBoxContent(props, ref) {
           alt=""
           className={module_styles["project-image"]}
         />
-      </div>
-      <div className={module_styles["project-description-container"]}>
-        <h3>{props.content.title}</h3>
-        <h5 className={module_styles["project-description"]}>
-          {props.content.description}
-        </h5>
         <div className={module_styles["project-links"]}>
           <a
             href={props.content.links.github_repo}
@@ -50,6 +44,14 @@ function ProjectBoxContent(props, ref) {
             </a>
           )}
         </div>
+      </div>
+      <div className={module_styles["project-description-container"]}>
+        <h3 className={module_styles["project-title"]}>
+          {props.content.title}
+        </h3>
+        <h5 className={module_styles["project-description"]}>
+          {props.content.description}
+        </h5>
       </div>
     </div>
   );
