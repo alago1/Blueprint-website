@@ -17,10 +17,20 @@ function PortraitBanner(props) {
   useEffect(() => {
     if (displayedPortrait !== store.selectedPortrait) {
       portraitRef.current
-        .playEndAnimation(1000, 0, "ease", true)
+        .playEndAnimation({
+          duration: 1000,
+          delay: 0,
+          easingFunction: "ease",
+          disableFilling: true,
+        })
         .then(() => setDisplayedPortrait(store.selectedPortrait));
     } else {
-      portraitRef.current.playStartAnimation(3000, 0, "ease", true);
+      portraitRef.current.playStartAnimation({
+        duration: 3000,
+        delay: 0,
+        easingFunction: "ease",
+        disableFilling: true,
+      });
     }
   }, [displayedPortrait, store.selectedPortrait]);
 

@@ -7,7 +7,6 @@ import React, {
   useMemo,
 } from "react";
 import module_styles from "./DrawSVG.module.css";
-// import "./DrawSVG.css";
 
 function DrawSVG(props, ref) {
   //animation state
@@ -35,13 +34,13 @@ function DrawSVG(props, ref) {
 
   //Permits use of these functions from parent component
   useImperativeHandle(ref, () => ({
-    playStartAnimation(
+    playStartAnimation({
       duration = 2000,
       delay = 0,
       easingFunction = "ease",
       disableFilling = false,
-      startTransparent = false
-    ) {
+      startTransparent = false,
+    }) {
       setAnim({
         type: "comp",
         duration: duration,
@@ -52,13 +51,13 @@ function DrawSVG(props, ref) {
       });
       return new Promise((resolve) => setTimeout(resolve, duration + delay));
     },
-    playEndAnimation(
+    playEndAnimation({
       duration = 2000,
       delay = 0,
       easingFunction = "ease",
       disableFilling = false,
-      startTransparent = false
-    ) {
+      startTransparent = false,
+    }) {
       setAnim({
         type: "decomp",
         duration: duration,

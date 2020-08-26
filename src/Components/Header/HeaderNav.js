@@ -53,13 +53,12 @@ function HeaderNav(props) {
         .filter((page) => page !== "Home")
         .forEach((page) =>
           // first draw takes a bigger duration and delay
-          pageRefs[page].current.playStartAnimation(
-            1000,
-            2000,
-            "cubic-bezier(1, 0.16, 1, 0.3)",
-            false,
-            true
-          )
+          pageRefs[page].current.playStartAnimation({
+            duration: 1000,
+            delay: 2000,
+            easingFunction: "cubic-bezier(1, 0.16, 1, 0.3)",
+            startTransparent: true,
+          })
         );
     }
   }, [pageRefs, pages, currPage]);
@@ -70,13 +69,12 @@ function HeaderNav(props) {
       Object.keys(pages)
         .filter((page) => page !== currPage)
         .forEach((page) =>
-          pageRefs[page].current.playStartAnimation(
-            1000,
-            300,
-            "cubic-bezier(1, 0.16, 1, 0.3)",
-            false,
-            true
-          )
+          pageRefs[page].current.playStartAnimation({
+            duration: 1000,
+            delay: 300,
+            easingFunction: "cubic-bezier(1, 0.16, 1, 0.3)",
+            startTransparent: true,
+          })
         );
     }
   }, [pageRefs, pages, currPage]);
@@ -101,7 +99,10 @@ function HeaderNav(props) {
 
     if (newPage in pages) {
       if (pageRefs[newPage].current) {
-        pageRefs[newPage].current.playEndAnimation(1000, 0);
+        pageRefs[newPage].current.playEndAnimation({
+          duration: 1000,
+          delay: 0,
+        });
         Object.keys(pages)
           .filter(
             (elem, index) =>
@@ -112,7 +113,10 @@ function HeaderNav(props) {
               index < redrawIndex
           )
           .forEach((page) =>
-            pageRefs[page].current.playEndAnimation(1000, 500)
+            pageRefs[page].current.playEndAnimation({
+              duration: 1000,
+              delay: 500,
+            })
           );
       }
       // console.log("Setting new page to " + newPage);
