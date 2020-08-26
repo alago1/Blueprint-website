@@ -19,16 +19,12 @@ function PortraitBanner(props) {
       portraitRef.current
         .playEndAnimation({
           duration: 1000,
-          delay: 0,
-          easingFunction: "ease",
           disableFilling: true,
         })
         .then(() => setDisplayedPortrait(store.selectedPortrait));
     } else {
       portraitRef.current.playStartAnimation({
         duration: 3000,
-        delay: 0,
-        easingFunction: "ease",
         disableFilling: true,
       });
     }

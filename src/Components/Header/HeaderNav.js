@@ -101,7 +101,6 @@ function HeaderNav(props) {
       if (pageRefs[newPage].current) {
         pageRefs[newPage].current.playEndAnimation({
           duration: 1000,
-          delay: 0,
         });
         Object.keys(pages)
           .filter(
